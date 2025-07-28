@@ -1,0 +1,22 @@
+@import "../../../../assets/styles/auth-form";
+@import "../../../../assets/styles/variables";
+
+.login {
+  padding-top: 123px;
+  padding-bottom: 148px;
+  .container {
+    .login-left {
+      max-width: 429px;
+    }
+    .login-right {
+      background-image: url("../../../../assets/images/auth/login.png");
+    }
+  }
+}
+
+
+
+
+
+
+

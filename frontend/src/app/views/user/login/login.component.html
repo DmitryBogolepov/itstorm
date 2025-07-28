@@ -1,5 +1,19 @@
 <section class="login">
   <div class="container">
-    
+    <div class="login-left">
+      <div class="auth-title">Войти в личный кабинет</div>
+      <form class="auth-form">
+        <input class="reg-input" type="text" placeholder="Электронная почта">
+        <input class="reg-input" type="password" placeholder="Пароль">
+        <input class="checkbox" id="checkbox" type="checkbox">
+        <label class="checkbox-label" for="checkbox">Запомнить меня</label>
+      </form>
+      <button class="button auth-button">Войти</button>
+      <div class="auth-info">
+        <div class="auth-info-text">Нет аккаунта?</div>
+        <a class="auth-info-link" routerLink="/signup">Пройдите регистрацию</a>
+      </div>
+    </div>
+    <div class="auth-bg-image login-right"></div>
   </div>
 </section>
