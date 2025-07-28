@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="33dc15cd-8451-4dd6-9035-adecce70b26d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/migrate-mongo-config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/migrations/20221128150925-addUser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/migrations/20221128195517-addCategories.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/migrations/20230119094021-addArticles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/config/config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/controllers/article.controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/controllers/auth.controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/controllers/category.controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/controllers/comment.controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/controllers/request.controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/controllers/user.controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/models/article.model.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/models/category.model.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/models/comment.model.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/models/request.model.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/models/user-comment-action.model.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/models/user.model.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/normalizers/article.normalizer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/normalizers/base.normalizer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/normalizers/category.normalizer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/normalizers/comment.normalizer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/normalizers/user-comment-action.normalizer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/normalizers/user.normalizer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/routes/article.routes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/routes/auth.routes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/routes/category.routes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/routes/comment.routes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/routes/request.routes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/routes/user.routes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/utils/common/auth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/utils/common/connection.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/utils/token.utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/utils/validation.utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/Lora-Regular.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/Montserrat-Bold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/Montserrat-LightItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/Montserrat-Medium.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/Montserrat-Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/Montserrat-SemiBold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/assets/styles/_fonts.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/assets/styles/_global.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/assets/styles/_mixins.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/assets/styles/_variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.browserslistrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/extensions.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.vscode/extensions.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.vscode/launch.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/tasks.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.vscode/tasks.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/karma.conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/environments/environment.prod.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/environments/environment.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/polyfills.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.spec.json" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="SCSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2vs9GPssPeuTaHB71jOKuUA48MO" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/Дмитрий/WebstormProjects/angular/itstorm/frontend/src/assets/styles",
+    "list.type.of.created.stylesheet": "SCSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Users\\Дмитрий\\WebstormProjects\\angular\\itstorm\\frontend\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Дмитрий\WebstormProjects\angular\itstorm\frontend\src\assets\styles" />
+      <recent name="C:\Users\Дмитрий\WebstormProjects\angular\itstorm\frontend\src\assets\fonts" />
+      <recent name="C:\Users\Дмитрий\WebstormProjects\angular\itstorm" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Дмитрий\WebstormProjects\angular\itstorm\frontend\src\assets\styles" />
+      <recent name="C:\Users\Дмитрий\WebstormProjects\angular\itstorm\frontend" />
+      <recent name="C:\Users\Дмитрий\WebstormProjects\angular\itstorm\src\app\shared" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.Angular CLI Server">
+    <configuration name="Tests (angular14)" type="JavaScriptTestRunnerKarma">
+      <config-file value="$PROJECT_DIR$/karma.conf.js" />
+      <working-directory value="$PROJECT_DIR$" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular Application" type="JavascriptDebugType" uri="http://localhost:4200">
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular CLI Server" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="33dc15cd-8451-4dd6-9035-adecce70b26d" name="Changes" comment="" />
+      <created>1744922817600</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1744922817600</updated>
+      <workItem from="1744922818600" duration="305000" />
+      <workItem from="1744923137841" duration="2000" />
+      <workItem from="1745007860578" duration="18000" />
+      <workItem from="1745261631858" duration="5320000" />
+      <workItem from="1745348356720" duration="28000" />
+      <workItem from="1745350097072" duration="685000" />
+      <workItem from="1745503163435" duration="8000" />
+      <workItem from="1745505629049" duration="47000" />
+      <workItem from="1753638400321" duration="502000" />
+      <workItem from="1753708249497" duration="3819000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

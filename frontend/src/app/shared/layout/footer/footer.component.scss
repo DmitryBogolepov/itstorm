@@ -1,0 +1,97 @@
+@import "../../../../assets/styles/variables";
+
+.footer {
+  background-color: $light-blue-color;
+  padding-bottom: 54px;
+  padding-top: 40px;
+  .container {
+    .footer-top {
+      display: flex;
+      align-items: center;
+      margin-bottom: 40px;
+      .logo {
+        margin-right: 40px;
+      }
+      .nav-items {
+        ul {
+          margin: 0;
+          padding: 0;
+          display: flex;
+          li {
+            margin-right: 20px;
+            list-style: none;
+            &:last-child {
+              margin-right: 0;
+            }
+            a {
+              text-decoration: none;
+              color: $dark-blue-color;
+              font-family: Montserrat,sans-serif;
+              font-weight: 400;
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+    .footer-middle {
+      display: flex;
+      align-items: baseline;
+
+      .footer-middle-card {
+        margin-right: 60px;
+
+        .footer-middle-card-title {
+          color: $blue-main-color;
+          font-family: Montserrat,sans-serif;
+          font-weight: 500;
+          font-size: 16px;
+          margin-bottom: 10px;
+
+        }
+        .socials-title {
+          margin-bottom: 15px;
+        }
+        .footer-middle-card-description {
+          color: $dark-blue-color;
+          font-family: Montserrat,sans-serif;
+          font-weight: 400;
+          font-size: 16px;
+          max-width: 253px;
+        }
+
+        .middle-card-action {
+          margin-top: 10px;
+          .footer-button {
+            padding: 10px 20px;
+            font-weight: 500;
+            font-size: 12px;
+          }
+        }
+
+        .footer-middle-socials-cards {
+          display: flex;
+          align-items: center;
+          .footer-middle-socials-card {
+            margin-right: 12px;
+            &:last-child {
+              margin-right: 0;
+            }
+          }
+        }
+
+      }
+    }
+
+    .footer-bottom {
+      margin-top: 6px;
+      .footer-bottom-right{
+        font-family: Montserrat,sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        color: $blue-main-color;
+      }
+    }
+  }
+}
+
