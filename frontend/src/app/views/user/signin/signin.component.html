@@ -1,15 +1,15 @@
-<section class="signup">
+<section class="signup" [formGroup]="signUpForm" >
   <div class="container">
     <div class="signup-left">
       <div class="auth-title">Войти в личный кабинет</div>
       <form class="auth-form">
-        <input class="reg-input" type="text" placeholder="Ваше имя">
-        <input class="reg-input" type="text" placeholder="Электронная почта">
-        <input class="reg-input" type="password" placeholder="Пароль">
-        <input class="checkbox" id="checkbox" type="checkbox">
+        <input class="reg-input" type="text" placeholder="Ваше имя" formControlName="name">
+        <input class="reg-input" type="text" placeholder="Электронная почта" formControlName="email">
+        <input class="reg-input" type="password" placeholder="Пароль" formControlName="password">
+        <input class="checkbox" id="checkbox" type="checkbox" formControlName="acceptPolitics">
         <label class="checkbox-label" for="checkbox">Я принимаю <a class="checkbox-link">условия пользовательского соглашения</a> и даю <a class="checkbox-link">согласие на обработку персональных данных.</a></label>
       </form>
-      <button class="button auth-button">Зарегистрироваться</button>
+      <button class="button auth-button" [disabled]="signUpForm.invalid" (click)="signup()">Зарегистрироваться</button>
       <div class="auth-info">
         <div class="auth-info-text">Уже есть аккаунт?</div>
         <a class="auth-info-link" routerLink="/login">Войдите</a>

@@ -5,19 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33dc15cd-8451-4dd6-9035-adecce70b26d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/assets/images/auth/login.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/assets/images/auth/signup.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/assets/styles/_auth-form.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/shared/layout/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/shared/layout/header/header.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/shared/layout/layout.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/shared/layout/layout.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/shared/shared.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/shared/shared.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/views/user/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/views/user/login/login.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/views/user/login/login.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/views/user/login/login.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/views/user/signin/signin.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/views/user/signin/signin.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/views/user/signin/signin.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/views/user/signin/signin.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/views/user/user.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/views/user/user.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/assets/styles/_global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/styles/_global.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/assets/styles/_mixins.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/styles/_mixins.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +58,7 @@
       <recent name="C:\Users\Дмитрий\WebstormProjects\angular\itstorm" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Дмитрий\WebstormProjects\angular\itstorm" />
       <recent name="C:\Users\Дмитрий\WebstormProjects\angular\itstorm\frontend\src\assets\images\auth" />
       <recent name="C:\Users\Дмитрий\WebstormProjects\angular\itstorm\frontend\src\assets\styles" />
       <recent name="C:\Users\Дмитрий\WebstormProjects\angular\itstorm\frontend" />
@@ -116,6 +106,9 @@
       <workItem from="1753638400321" duration="502000" />
       <workItem from="1753708249497" duration="3819000" />
       <workItem from="1753721106545" duration="3238000" />
+      <workItem from="1753724610088" duration="228000" />
+      <workItem from="1753802535869" duration="1644000" />
+      <workItem from="1753886020384" duration="581000" />
     </task>
     <servers />
   </component>
