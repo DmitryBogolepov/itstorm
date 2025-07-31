@@ -1,0 +1,64 @@
+@import "../../../assets/styles/auth-form";
+@import "../../../assets/styles/variables";
+.main {
+  .container {
+
+    .banner-slider {
+
+    }
+
+    .services {
+      padding-top: 120px;
+      padding-bottom: 120px;
+      .services-title {
+        @include head-lora-38;
+        margin-bottom: 40px;
+      }
+    }
+    .about-us {
+      padding-bottom: 120px;
+    }
+
+    .popular {
+      padding-bottom: 120px;
+      .popular-title {
+        @include head-lora-38;
+        margin-bottom: 40px;
+      }
+      .articles-block {
+        display: flex;
+        .article-item {
+          margin-right: 24px;
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
+      .popular-action {
+        margin-top: 40px;
+        display: flex;
+        align-items: center;
+        .popular-action-svg {
+          margin-left: 14px;
+        }
+        .popular-action-text {
+          color: $blue-main-color;
+          font-family: Montserrat,sans-serif;
+          font-weight: 500;
+          font-size: 20px;
+        }
+      }
+    }
+
+
+    .reviews {
+      padding-bottom: 120px;
+    }
+    .contacts {
+      padding-bottom: 120px;
+    }
+  }
+
+
+
+}
