@@ -39,7 +39,7 @@
         <div class="footer-middle-card-title">Телефон</div>
         <div class="footer-middle-card-description">+7 (499) 343-13-34</div>
         <div class="middle-card-action">
-          <button class="button footer-button">Перезвоните мне</button>
+          <button class="button footer-button" (click)="modalShow()">Перезвоните мне</button>
         </div>
       </div>
       <div class="footer-middle-card">
@@ -76,7 +76,38 @@
     <div class="footer-bottom">
       <div class="footer-bottom-right">© 2025. Все права защищены</div>
     </div>
-
-
+  </div>
+  <div *ngIf="isShowed">
+    <div class="footer-modal-backdrop" (click)="modalShow()"></div>
+    <div class="footer-modal" >
+      <div class="footer-modal-form order" *ngIf="!showSuccess">
+        <div class="footer-modal-close-icon"  (click)="modalShow()">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0.935622" y1="0.649902" x2="12.9564" y2="12.6707" stroke="#BEBEBE" stroke-linecap="round"/>
+            <line x1="12.9236" y1="0.629714" x2="0.902769" y2="12.6505" stroke="#BEBEBE" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="footer-modal-title">Закажите бесплатную консультацию!</div>
+        <div class="footer-modal-form" [formGroup]="footerOrderForm">
+          <form>
+            <input type="text" class="input modal-form" formControlName="name" placeholder="Ваше имя">
+            <input type="text" class="input modal-form" formControlName="number" placeholder="Ваш номер телефона">
+          </form>
+          <button class="button modal-form-button" (click)="submitOrder()"></button>
+        </div>
+      </div>
+      <div class="footer-modal-form success" *ngIf="showSuccess">
+        <div class="footer-modal-close-icon" (click)="modalShow()">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0.935622" y1="0.649902" x2="12.9564" y2="12.6707" stroke="#BEBEBE" stroke-linecap="round"/>
+            <line x1="12.9236" y1="0.629714" x2="0.902769" y2="12.6505" stroke="#BEBEBE" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="footer-modal-title">Спасибо за вашу заявку!</div>
+        <div class="footer-modal-description">Мы свяжемся с вами при первой же возможности.</div>
+        <button class="button modal-success" (click)="modalShow()">Окей</button>
+      </div>
+    </div>
   </div>
 </section>
+

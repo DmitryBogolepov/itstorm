@@ -6,6 +6,8 @@ import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import {RouterModule, RouterOutlet} from "@angular/router";
 import { ArticleComponent } from './components/article/article.component';
+import { CommentComponent } from './components/comment/comment.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 
@@ -15,7 +17,8 @@ import { ArticleComponent } from './components/article/article.component';
     LoaderComponent,
     HeaderComponent,
     FooterComponent,
-    ArticleComponent
+    ArticleComponent,
+    CommentComponent
   ],
   exports: [
     LoaderComponent,
@@ -24,7 +27,8 @@ import { ArticleComponent } from './components/article/article.component';
   imports: [
     CommonModule,
     RouterOutlet,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ]
 })
 export class SharedModule { }
