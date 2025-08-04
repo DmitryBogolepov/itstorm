@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-main',
@@ -7,9 +8,69 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  constructor(private fb:FormBuilder) { }
+  showSuccess = false;
+  isShowed = false;
+  reviews = [
+    {
+      name: 'Станислав',
+      photo: 'assets/images/main-page/user1.jpg',
+      text: 'Спасибо огромное АйтиШторму за прекрасный блог с полезными статьями! Именно они и побудили меня углубиться в тему SMM и начать свою карьеру.'
+    },
+    {
+      name: 'Алёна',
+      photo: 'assets/images/main-page/user2.jpg',
+      text: 'Обратилась в АйтиШторм за помощью копирайтера. Ни разу ещё не пожалела! Ребята действительно вкладывают душу в то, что делают, и каждый текст, который я получаю, с нетерпением хочется выложить в сеть.'
+    },
+    {
+      name: 'Мария',
+      photo: 'assets/images/main-page/user3.jpg',
+      text: 'Команда АйтиШторма за такой короткий промежуток времени сделала невозможное: от простой фирмы по услуге продвижения выросла в мощный блог о важности личного бренда. Класс!'
+    }
+  ];
+  bannerCarouselOptions = {
+    items: 1,
+    loop: true,
+    nav: false,
+    dots: false,
+    autoplay: false,
+    autoplayHoverPause: true,
+    mouseDrag: true,
+    touchDrag: true,
+    navText: ['', ''],
+  };
 
+  carouselOptions = {
+    loop: true,
+    mouseDrag: false,
+    touchDrag: false,
+    pullDrag: false,
+    dots: false,
+    margin: 12.5,
+    navText: ['', ''],
+    responsive: {
+      0: { items: 1 },
+      768: { items: 2 },
+      1024: { items: 3 }
+    },
+    nav: false,
+  };
+  modalOrderForm = this.fb.group({
+    service:['',[Validators.required]],
+    name:['',[Validators.required]],
+    number:['',[Validators.required]]
+  })
   ngOnInit(): void {
   }
+  modalShow() {
+    this.isShowed = !this.isShowed;
+  }
 
+  submitOrder() {
+    if (this.modalOrderForm.valid && this.modalOrderForm.value.service && this.modalOrderForm.value.name && this.modalOrderForm.value.number) {
+
+      this.showSuccess =  !this.showSuccess;
+    }
+
+  }
 }

@@ -1,0 +1,54 @@
+@import "../../../../assets/styles/variables";
+.comment {
+  width: 854px;
+  font-family: Montserrat,sans-serif;
+  .user-block {
+    display: flex;
+    align-items: center;
+    .user-block-image {
+      margin-right: 26px;
+      border: 2px solid
+      $blue-main-color;
+      border-radius: 50%;
+      height: 60px;
+      width: 60px;
+    }
+    .user-block-info {
+     .user-block-name {
+       font-weight: 600;
+       font-size: 18px;
+       color: $blue-main-color;
+     }
+      .user-block-date {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 130%;
+        color: #BEBEBE;
+      }
+    }
+  }
+  .comment-text {
+    margin-top: 15px;
+    margin-bottom: 39px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    color: $dark-blue-color;
+  }
+  .comment-reactions {
+    display: flex;
+    align-items: center;
+    .comment{
+      margin-right: 15px;
+      .comment-number {
+        margin-right: 3px;
+        font-weight: 600;
+        font-size: 14px;
+        color: $dark-blue-color;
+      }
+    }
+    .comment-question {
+
+    }
+  }
+}

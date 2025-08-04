@@ -1,11 +1,21 @@
 <section class="main">
   <div class="container">
-    <div class="banner-slider">
-      <img src="../../../assets/images/main-page/banner1.png" alt="Offer">
-<!--      <img src="../../../assets/images/main-page/banner2.png" alt="Offer">-->
-<!--      <img src="../../../assets/images/main-page/banner3.png" alt="Offer">-->
+    <div class="banner-slider" (click)="modalShow()">
+      <owl-carousel-o [options]="bannerCarouselOptions" #owlCarBanner>
+        <ng-template carouselSlide>
+          <img src="../../../assets/images/main-page/banner1.png" alt="Offer" (click)="modalShow()" />
+        </ng-template>
+        <ng-template carouselSlide>
+          <img src="../../../assets/images/main-page/banner2.png" alt="Offer" (click)="modalShow()" />
+        </ng-template>
+        <ng-template carouselSlide>
+          <img src="../../../assets/images/main-page/banner3.png" alt="Offer" (click)="modalShow()" />
+        </ng-template>
+      </owl-carousel-o>
+      <a class="prev-btn" (click)="owlCarBanner.prev()"><img src="../../../assets/images/main-page/banner-prev.png" alt="prev arrow"></a>
+      <a class="next-btn" (click)="owlCarBanner.next()"><img src="../../../assets/images/main-page/banner-next.png" alt="next arrow"></a>
     </div>
-    <div class="services">
+    <div class="services" id="services">
       <div class="services-title">
         Услуги, которые мы предлагаем
       </div>
@@ -20,7 +30,7 @@
           </div>
         </div>
         <div class="services-item">
-          <img src="../../../assets/images/main-page/card1.png" alt="Service">
+          <img src="../../../assets/images/main-page/card2.png" alt="Service">
           <div class="service-item-title">Продвижение</div>
           <div class="service-item-description">Вам нужен качественный SMM-специалист или грамотный таргетолог? Мы готовы оказать Вам услугу “Продвижения” на наивысшем уровне!</div>
           <div class="service-item-action">
@@ -29,7 +39,7 @@
           </div>
         </div>
         <div class="services-item">
-          <img src="../../../assets/images/main-page/card1.png" alt="Service">
+          <img src="../../../assets/images/main-page/card3.png" alt="Service">
           <div class="service-item-title">Реклама</div>
           <div class="service-item-description">Без рекламы не может обойтись ни один бизнес или специалист. Обращаясь к нам, мы гарантируем быстрый прирост клиентов за счёт правильно настроенной рекламы.</div>
           <div class="service-item-action">
@@ -38,7 +48,7 @@
           </div>
         </div>
         <div class="services-item">
-          <img src="../../../assets/images/main-page/card1.png" alt="Service">
+          <img src="../../../assets/images/main-page/card4.png" alt="Service">
           <div class="service-item-title">Копирайтинг</div>
           <div class="service-item-description">Наши копирайтеры готовы написать Вам любые продающие текста, которые не только обеспечат рост охватов, но и помогут выйти на новый уровень в продажах.</div>
           <div class="service-item-action">
@@ -49,27 +59,40 @@
       </div>
     </div>
 
-    <div class="about-us">
+    <div class="about-us" id="about-us">
       <div class="about-us-image"></div>
       <div class="about-us-info">
         <div class="about-us-title">Кто мы и чем мы занимаемся?</div>
-        <div class="about-us-description">АйтиШторм — это ваш помощник №1 при решении таких вопросов, как продвижение в сети, разработка сайтов для бизнеса и личного бренда, сторисмейкинг, копирайтинг, маркетинг, разработка визуальной концепции и создание инфопродуктов. Компания была основана в 2019 году и за всё это время смогла выйти в ТОП-10 агенств, предлагающих услуги продвижения в сети.</div>
+        <div class="about-us-description"><span>АйтиШторм</span> — это ваш помощник №1 при решении таких вопросов, как продвижение в сети, разработка сайтов для бизнеса и личного бренда, сторисмейкинг, копирайтинг, маркетинг, разработка визуальной концепции и создание инфопродуктов. Компания была основана в 2019 году и за всё это время смогла выйти в ТОП-10 агенств, предлагающих услуги продвижения в сети.</div>
         <div class="advantages-title">Наши преимущества</div>
         <div class="advantages">
           <div class="advantage">
-            <div class="advantage-number">1</div>
+            <div class="number-block">
+              <div class="advantage-number ">1</div>
+              <div class="circle first"></div>
+            </div>
+
             <div class="advantage-text"><span>Мастерски вовлекаем аудиториюв процесс.</span>Мы увеличиваем процент вовлечённости за короткий промежуток времени.</div>
           </div>
           <div class="advantage">
-            <div class="advantage-number">2</div>
+            <div class="number-block">
+              <div class="advantage-number">2</div>
+              <div class="circle"></div>
+            </div>
             <div class="advantage-text"><span>Разрабатываем бомбическую визуальную концепцию.</span>Наши специалисты знают как создать уникальный образ вашего проекта.</div>
           </div>
           <div class="advantage">
-            <div class="advantage-number">3</div>
+            <div class="number-block">
+              <div class="advantage-number">3</div>
+              <div class="circle"></div>
+            </div>
             <div class="advantage-text"><span>Создаём мощные воронки с помощью текстов.</span>Наши копирайтеры создают не только вкусные текста, но и классные воронки.</div>
           </div>
           <div class="advantage">
-            <div class="advantage-number">4</div>
+            <div class="number-block">
+              <div class="advantage-number">4</div>
+              <div class="circle"></div>
+            </div>
             <div class="advantage-text"><span>Помогаем продавать больше.</span>Мы не только помогаем разработать стратегию по продажам, но также корректируем её под нужды заказчика.</div>
           </div>
         </div>
@@ -91,33 +114,29 @@
         </svg>
       </div>
     </div>
-    <div class="reviews">
+    <div class="reviews" id="reviews">
       <div class="reviews-title">Отзывы о нашей работе</div>
-      <div class="reviews-slider">
-        <div class="review">
-          <div class="review-user">
-            <img class="user-photo" src="../../../assets/images/main-page/user1.jpg" alt="Client photo">
-            <div class="user-name">Станислав</div>
-          </div>
-          <div class="review-text">Спасибо огромное АйтиШторму за прекрасный блог с полезными статьями! Именно они и побудили меня углубиться в тему SMM и начать свою карьеру.</div>
-        </div>
-        <div class="review">
-          <div class="review-user">
-            <img class="user-photo" src="../../../assets/images/main-page/user2.jpg" alt="Client photo">
-            <div class="user-name">Алёна</div>
-          </div>
-          <div class="review-text">Обратилась в АйтиШторм за помощью копирайтера. Ни разу ещё не пожалела! Ребята действительно вкладывают душу в то, что делают, и каждый текст, который я получаю, с нетерпением хочется выложить в сеть.</div>
-        </div>
-        <div class="review">
-          <div class="review-user">
-            <img class="user-photo" src="../../../assets/images/main-page/user3.jpg" alt="Client photo">
-            <div class="user-name">Мария</div>
-          </div>
-          <div class="review-text">Команда АйтиШторма за такой короткий промежуток времени сделала невозможное: от простой фирмы по услуге продвижения выросла в мощный блог о важности личного бренда. Класс!</div>
-        </div>
-      </div>
+      <a class="move-backward" (click)="owlCar.prev()">
+        <img src="../../../assets/images/main-page/reviews-arrow2.png" alt="arrow Prev">
+      </a>
+      <owl-carousel-o [options]="carouselOptions" #owlCar>
+        <ng-container *ngFor="let review of reviews">
+          <ng-template carouselSlide>
+            <div class="review">
+              <div class="review-user">
+                <img class="user-photo" [src]="review.photo" alt="Client photo">
+                <div class="user-name">{{ review.name }}</div>
+              </div>
+              <div class="review-text">{{ review.text }}</div>
+            </div>
+          </ng-template>
+        </ng-container>
+      </owl-carousel-o>
+      <a class="move-forward" (click)="owlCar.next()">
+        <img src="../../../assets/images/main-page/reviews-arrow.png" alt="arrow next">
+      </a>
     </div>
-    <div class="contacts">
+    <div class="contacts" id="contacts">
       <div class="contacts-map">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d561.3739639516217!2d37.53785679447748!3d55.749888038259584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54bdcbfd1b72d%3A0x433d48214f76b256!2z0J_RgNC10YHQvdC10L3RgdC60LDRjyDQvdCw0LEuLCAxMiwg0JzQvtGB0LrQstCwLCAxMjMzMTc!5e0!3m2!1sru!2sru!4v1753975268427!5m2!1sru!2sru" width="607" height="438" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
@@ -156,6 +175,43 @@
 
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div *ngIf="isShowed">
+    <div class="main-modal-backdrop" (click)="modalShow()"></div>
+    <div class="main-modal" >
+      <div class="main-modal-close-icon"  (click)="modalShow()">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0.935622" y1="0.649902" x2="12.9564" y2="12.6707" stroke="#BEBEBE" stroke-linecap="round"/>
+          <line x1="12.9236" y1="0.629714" x2="0.902769" y2="12.6505" stroke="#BEBEBE" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="main-modal-form order" *ngIf="!showSuccess">
+        <div class="main-modal-title">Заявка на услугу</div>
+        <div class="main-modal-form" >
+          <form [formGroup]="modalOrderForm">
+            <input type="text" class="reg-input modal-form" formControlName="service" placeholder="Выбранная услуга"
+                   [ngStyle]="{'border-color':modalOrderForm.get('service')?.invalid
+                 && (modalOrderForm.get('service')?.dirty || modalOrderForm.get('service')?.touched) ? 'red' : ''}">
+            <input type="text" class="reg-input modal-form" formControlName="name" placeholder="Ваше имя"
+                   [ngStyle]="{'border-color':modalOrderForm.get('name')?.invalid
+                 && (modalOrderForm.get('name')?.dirty || modalOrderForm.get('name')?.touched) ? 'red' : ''}">
+            <input type="text" class="reg-input modal-form" formControlName="number" placeholder="Ваш номер телефона"
+                   [ngStyle]="{'border-color':modalOrderForm.get('number')?.invalid
+                 && (modalOrderForm.get('number')?.dirty || modalOrderForm.get('number')?.touched) ? 'red' : ''}">
+            <button class="button auth-button" [disabled]="modalOrderForm.invalid" (click)="submitOrder()">Оставить заявку</button>
+          </form>
+
+        </div>
+      </div>
+      <div class="main-modal-form success" *ngIf="showSuccess">
+        <div class="main-modal-title">Спасибо за вашу заявку!</div>
+        <div class="main-modal-description">Мы свяжемся с вами при первой же возможности.</div>
+        <button class="button modal-success" (click)="modalShow()">Окей</button>
       </div>
     </div>
   </div>

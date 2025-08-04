@@ -20,6 +20,8 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    if (this.loginForm.valid && this.loginForm.value.email && this.loginForm.value.password) {
 
+    }
   }
 }

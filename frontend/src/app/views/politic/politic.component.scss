@@ -1,0 +1,32 @@
+@import "../../../assets/styles/variables";
+.politic {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  .container {
+    .politics-block {
+
+      &.user-agreement {
+        margin-bottom: 40px;
+      }
+      .main-title {
+        color: $blue-main-color;
+        text-align: center;
+        font-size: 24px;
+        margin-bottom: 16px;
+      }
+      .sub-title {
+        color: $blue-main-color;
+        font-size: 20px;
+        margin-bottom: 14px;
+        margin-top: 8px;
+      }
+      p {
+        margin-bottom: 5px;
+        line-height: 130%;
+        color: $dark-blue-color;
+        font-size: 16px;
+        text-align: justify;
+      }
+    }
+  }
+}

@@ -1,4 +1,5 @@
 @import "../../../../assets/styles/variables";
+@import "../../../../assets/styles/mixins";
 
 .footer {
   background-color: $light-blue-color;
@@ -96,3 +97,84 @@
   }
 }
 
+.footer-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+}
+.footer-modal {
+  position: fixed;
+  width: 727px;
+  height: 489px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 10px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .footer-modal-close-icon{
+    position: absolute;
+    top: 30px;
+    right: 30px;
+  }
+  .footer-modal-form {
+    position: relative;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    form {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      .reg-input.modal-form {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 130%;
+        &:first-child {
+          margin-bottom: 5px;
+        }
+      }
+    }
+    .auth-button {
+      width: 422px;
+      height: 51px;
+      font-size: 16px;
+      font-family: Montserrat,sans-serif;
+      font-weight: 400;
+      margin-top: 20px;
+    }
+    &.order {
+
+    }
+    &.success{
+      .footer-modal-description {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 130%;
+        text-align: center;
+        color: #1E1A2B;
+        margin-bottom: 40px;
+      }
+      .modal-success {
+        padding: 10px 20px;
+        font-size: 12px;
+      }
+    }
+
+    .footer-modal-title {
+      width: 443px;
+      text-align: center;
+      @include head-lora-38;
+      margin-bottom: 20px;
+      color: $blue-main-color;
+    }
+  }
+}
