@@ -8,6 +8,66 @@
       height: 500px;
       cursor: pointer;
       position: relative;
+      .banner {
+        display: flex;
+        position: relative;
+        overflow: hidden;
+        padding: 80px 100px;
+        .banner-circle {
+          border-radius: 50%;
+          background-color: $light-blue-color;
+          position: absolute;
+          width: 1405px;
+          height: 1405px;
+          top: -702px;
+          left: -702px;
+          z-index: 5;
+          overflow: hidden;
+        }
+        .banner-text {
+          z-index: 10;
+
+          .banner-small-title {
+            font-family: Montserrat,sans-serif;
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+            color: $blue-main-color;
+          }
+          .banner-main-text {
+            font-family: Lora,sans-serif;
+            font-size: 50px;
+            color: white;
+            margin-bottom: 20px;
+            width: 610px;
+            span {
+              color: $blue-main-color
+            }
+          }
+          .banner-sub-text {
+            font-size: 24px;
+            line-height: 130%;
+            color: #FFFFFF;
+            width: 456px;
+
+          }
+          .banner-button {
+            width: 163px;
+            height: 51px;
+            box-sizing: border-box;
+            font-size: 16px;
+            margin-top: 40px;
+          }
+        }
+        .banner-img {
+          width: 750px;
+          height: 500px;
+          z-index: 4;
+          position: absolute;
+          left: 490px;
+          top: 0;
+        }
+      }
       .prev-btn,
       .next-btn {
         position: absolute;
@@ -335,6 +395,13 @@
 
             .contacts-item-social {
               margin-right: 20px;
+              svg {
+                cursor: pointer;
+                transition-duration: 0.3s;
+                &:hover path{
+                  fill:$blue-main-color;
+                }
+              }
             }
           }
 
