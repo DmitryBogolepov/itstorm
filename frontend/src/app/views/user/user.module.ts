@@ -6,6 +6,8 @@ import { SigninComponent } from './signin/signin.component';
 import { LoginComponent } from './login/login.component';
 import {Router, RouterModule} from "@angular/router";
 import {ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import {ReactiveFormsModule} from "@angular/forms";
     CommonModule,
     UserRoutingModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule,
+    MatSnackBarModule
   ]
 })
 export class UserModule { }
