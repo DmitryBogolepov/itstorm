@@ -129,11 +129,10 @@
 
     <div class="popular">
       <div class="popular-title">Популярные статьи из блога</div>
-      <div class="articles-block">
-        <app-article class="article-item"></app-article>
-        <app-article class="article-item"></app-article>
-        <app-article class="article-item"></app-article>
-        <app-article class="article-item"></app-article>
+      <div class="articles-block" >
+        <div class="article-item" *ngFor="let article of articles">
+          <app-article [article]="article"></app-article>
+        </div>
       </div>
       <div class="popular-action">
         <div class="popular-action-text">Перейти в блог</div>

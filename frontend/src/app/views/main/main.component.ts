@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
+import {ArticleService} from "../../shared/services/article.service";
+import {ArticlePopularType} from "../../../types/article-popular.type";
 
 @Component({
   selector: 'app-main',
@@ -7,8 +9,8 @@ import {FormBuilder, Validators} from "@angular/forms";
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-
-  constructor(private fb:FormBuilder) { }
+  articles:ArticlePopularType[] = [];
+  constructor(private fb:FormBuilder, private articleService:ArticleService) { }
   showSuccess = false;
   isShowed = false;
   reviews = [
@@ -61,6 +63,9 @@ export class MainComponent implements OnInit {
     number:['',[Validators.required]]
   })
   ngOnInit(): void {
+    this.articleService.getPopularArticle().subscribe((data:ArticlePopularType[]) => {
+      this.articles = data;
+    })
   }
   modalShow() {
     this.isShowed = !this.isShowed;

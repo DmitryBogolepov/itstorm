@@ -8,6 +8,7 @@ import {RouterModule, RouterOutlet} from "@angular/router";
 import { ArticleComponent } from './components/article/article.component';
 import { CommentComponent } from './components/comment/comment.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
 
 
 
@@ -28,7 +29,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     CommonModule,
     RouterOutlet,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
   ]
 })
 export class SharedModule { }
