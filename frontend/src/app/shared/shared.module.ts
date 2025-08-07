@@ -9,6 +9,8 @@ import { ArticleComponent } from './components/article/article.component';
 import { CommentComponent } from './components/comment/comment.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {MatMenuModule} from '@angular/material/menu';
 
 
 
@@ -31,6 +33,8 @@ import {HttpClientModule} from "@angular/common/http";
     RouterModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatProgressSpinnerModule,
+    MatMenuModule
   ]
 })
 export class SharedModule { }

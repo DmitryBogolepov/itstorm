@@ -37,5 +37,28 @@ html,body {
   border-radius: 3px;
 }
 
+.mat-menu-panel {
+  background-color:#FFFFFF !important;
 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  min-height: unset !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 180px !important;
+  max-width: 220px;
+}
+
+.mat-menu-item {
+  font-size: 16px;
+  padding: 4px 8px;
+  color: $dark-blue-color !important;
+}
+.mat-menu-content {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+.mat-menu-item:hover {
+  background-color: $blue-main-color!important;
+}
 

@@ -34,7 +34,6 @@
     }
 
     .contact-number {
-      margin-right: 141px;
       a {
         text-decoration: none;
         color: $blue-main-color;
@@ -45,6 +44,7 @@
     }
 
     .user-actions {
+      margin-left: 141px;
       display: flex;
       align-items: center;
       cursor: pointer;
@@ -57,11 +57,9 @@
         font-weight: 500;
         font-size: 16px;
       }
+      &.active {
+        margin-left: 45px;
+      }
     }
-
   }
-
 }
-
-
-

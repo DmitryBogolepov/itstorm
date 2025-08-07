@@ -4,6 +4,7 @@ import {HttpClient} from "@angular/common/http";
 import {LoginResponseType} from "../../../types/login-response.type";
 import {DefaultResponseType} from "../../../types/default-response.type";
 import {environment} from "../../../environments/environment";
+import {UserType} from "../../../types/user.type";
 
 @Injectable({
   providedIn: 'root'
@@ -72,9 +73,11 @@ export class AuthService {
     }
     throw throwError(() => 'Can not use token')
   }
+
   get userId() :null | string {
     return localStorage.getItem(this.userIdKey);
   }
+
   set userId(id: null | string) {
     if (id) {
       localStorage.setItem(this.userIdKey, id);
@@ -82,6 +85,12 @@ export class AuthService {
       localStorage.removeItem(this.userIdKey);
     }
   }
+
+  getUserData() {
+    return this.http.get<DefaultResponseType | UserType>(environment.api + 'users');
+  }
+
+
   public getIsLoggedIn() {
     return this.isLogged;
   }
