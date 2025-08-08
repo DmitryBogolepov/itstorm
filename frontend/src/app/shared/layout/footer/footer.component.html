@@ -93,9 +93,9 @@
             <input type="text" class="reg-input modal-form" formControlName="name" placeholder="Ваше имя"
                    [ngStyle]="{'border-color':footerOrderForm.get('name')?.invalid
                  && (footerOrderForm.get('name')?.dirty || footerOrderForm.get('name')?.touched) ? 'red' : ''}">
-            <input type="text" class="reg-input modal-form" formControlName="number" placeholder="Ваш номер телефона"
-                   [ngStyle]="{'border-color':footerOrderForm.get('number')?.invalid
-                 && (footerOrderForm.get('number')?.dirty || footerOrderForm.get('number')?.touched) ? 'red' : ''}">
+            <input type="text" class="reg-input modal-form" formControlName="phone" placeholder="Ваш номер телефона"
+                   [ngStyle]="{'border-color':footerOrderForm.get('phone')?.invalid
+                 && (footerOrderForm.get('phone')?.dirty || footerOrderForm.get('phone')?.touched) ? 'red' : ''}">
           </form>
           <button class="button auth-button" [disabled]="footerOrderForm.invalid"  (click)="submitOrder()">Заказать консультацию</button>
         </div>

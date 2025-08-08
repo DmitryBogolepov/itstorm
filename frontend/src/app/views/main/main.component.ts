@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
 import {ArticleService} from "../../shared/services/article.service";
 import {ArticlePopularType} from "../../../types/article-popular.type";
+import {RequestService} from "../../shared/services/request.service";
+import {RequestType} from "../../../types/request.type";
+import {DefaultResponseType} from "../../../types/default-response.type";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-main',
@@ -10,7 +14,7 @@ import {ArticlePopularType} from "../../../types/article-popular.type";
 })
 export class MainComponent implements OnInit {
   articles:ArticlePopularType[] = [];
-  constructor(private fb:FormBuilder, private articleService:ArticleService) { }
+  constructor(private fb:FormBuilder,private _snackBar: MatSnackBar ,private articleService:ArticleService,private requestService:RequestService) { }
   showSuccess = false;
   isShowed = false;
   reviews = [
@@ -60,7 +64,7 @@ export class MainComponent implements OnInit {
   modalOrderForm = this.fb.group({
     service:['',[Validators.required]],
     name:['',[Validators.required]],
-    number:['',[Validators.required]]
+    phone:['',[Validators.required]]
   })
   ngOnInit(): void {
     this.articleService.getPopularArticle().subscribe((data:ArticlePopularType[]) => {
@@ -72,10 +76,25 @@ export class MainComponent implements OnInit {
   }
 
   submitOrder() {
-    if (this.modalOrderForm.valid && this.modalOrderForm.value.service && this.modalOrderForm.value.name && this.modalOrderForm.value.number) {
+    if (this.modalOrderForm.valid && this.modalOrderForm.value.service && this.modalOrderForm.value.name && this.modalOrderForm.value.phone) {
+      const requestObject:RequestType = {
+        name: this.modalOrderForm.value.name,
+        phone:this.modalOrderForm.value.phone,
+        type:'order',
+        service:this.modalOrderForm.value.service
+      }
+      this.requestService.sendRequest(requestObject)
+        .subscribe( {
+          next:(data:DefaultResponseType) => {
+            if (!data.error) {
+              this.showSuccess = true;
+            }
+          },
+          error: (err) => {
+            this._snackBar.open('Произошла ошибка при отправке запроса');
+          }
+        })
 
-      this.showSuccess =  !this.showSuccess;
     }
-
   }
 }

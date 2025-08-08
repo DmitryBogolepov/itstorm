@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../../../core/auth/auth.service";
 import {UserType} from "../../../../types/user.type";
 import {DefaultResponseType} from "../../../../types/default-response.type";
@@ -13,8 +13,9 @@ import {Router} from "@angular/router";
 })
 export class HeaderComponent implements OnInit {
   isLogged = false;
-  userData:UserType | null = null;
-  constructor(private authService:AuthService,private _snackBar: MatSnackBar,private router:Router) {
+  userData: UserType | null = null;
+
+  constructor(private authService: AuthService, private _snackBar: MatSnackBar, private router: Router) {
     this.isLogged = this.authService.getIsLoggedIn();
   }
 
@@ -23,36 +24,38 @@ export class HeaderComponent implements OnInit {
       this.isLogged = isLogged;
     });
 
-
-    this.authService.getUserData().subscribe({
-      next: (data: UserType | DefaultResponseType) => {
-        if ('error' in data) {
-          const error = data.message;
-          this._snackBar.open(error);
-          throw new Error(error);
-        } else {
-          this.userData = data as UserType;
+    if (this.isLogged) {
+      this.authService.getUserData().subscribe({
+        next: (data: UserType | DefaultResponseType) => {
+          if ('error' in data) {
+            const error = data.message;
+            this._snackBar.open(error);
+            throw new Error(error);
+          } else {
+            this.userData = data as UserType;
+          }
+        },
+        error: (errorResponse: HttpErrorResponse) => {
+          if (errorResponse.error && errorResponse.error.message) {
+            this._snackBar.open(errorResponse.error.message);
+          }
         }
-      },
-      error:(errorResponse:HttpErrorResponse) => {
-        if (errorResponse.error && errorResponse.error.message) {
-          this._snackBar.open(errorResponse.error.message);
-        }
-      }
-    })
+      })
+    }
   }
 
   logout() {
     this.authService.logout().subscribe({
-      next:() => {
+      next: () => {
         this.doLogout();
       },
-      error:() => {
+      error: () => {
         this.doLogout();
       }
     });
   }
-  doLogout():void {
+
+  doLogout(): void {
     this.authService.removeTokens();
     this.authService.userId = null;
     this._snackBar.open('Вы вышли из системы');

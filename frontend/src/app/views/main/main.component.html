@@ -227,9 +227,9 @@
             <input type="text" class="reg-input modal-form" formControlName="name" placeholder="Ваше имя"
                    [ngStyle]="{'border-color':modalOrderForm.get('name')?.invalid
                  && (modalOrderForm.get('name')?.dirty || modalOrderForm.get('name')?.touched) ? 'red' : ''}">
-            <input type="text" class="reg-input modal-form" formControlName="number" placeholder="Ваш номер телефона"
-                   [ngStyle]="{'border-color':modalOrderForm.get('number')?.invalid
-                 && (modalOrderForm.get('number')?.dirty || modalOrderForm.get('number')?.touched) ? 'red' : ''}">
+            <input type="text" class="reg-input modal-form" formControlName="phone" placeholder="Ваш номер телефона"
+                   [ngStyle]="{'border-color':modalOrderForm.get('phone')?.invalid
+                 && (modalOrderForm.get('phone')?.dirty || modalOrderForm.get('phone')?.touched) ? 'red' : ''}">
             <button class="button auth-button" [disabled]="modalOrderForm.invalid" (click)="submitOrder()">Оставить заявку</button>
           </form>
 
