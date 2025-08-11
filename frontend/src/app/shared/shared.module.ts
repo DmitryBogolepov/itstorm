@@ -11,6 +11,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatMenuModule} from '@angular/material/menu';
+import {TextLengthPipe} from "./pipes/textLength.pipe";
 
 
 
@@ -21,7 +22,8 @@ import {MatMenuModule} from '@angular/material/menu';
     HeaderComponent,
     FooterComponent,
     ArticleComponent,
-    CommentComponent
+    CommentComponent,
+    TextLengthPipe
   ],
   exports: [
     LoaderComponent,

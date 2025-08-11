@@ -2,6 +2,6 @@
   <div class="article-type">{{article.category}}</div>
   <div class="article-image" [ngStyle]="{ 'background-image': 'url(' + serverStaticPath + article.image + ')' }"></div>
   <div class="article-title">{{article.title}}</div>
-  <div class="article-description">{{article.description}}</div>
+  <div class="article-description">{{article.description | textLength: 200}}</div>
   <a class="article-action">Читать дальше</a>
 </div>

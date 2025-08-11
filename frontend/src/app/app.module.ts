@@ -12,6 +12,7 @@ import {CarouselModule} from "ngx-owl-carousel-o";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule} from "@angular/material/snack-bar";
 import {AuthInterceptor} from "./core/auth/auth.interceptor";
+import {BlogModule} from "./views/blog/blog.module";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {AuthInterceptor} from "./core/auth/auth.interceptor";
     BrowserAnimationsModule,
     CarouselModule,
     HttpClientModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    BlogModule
   ],
   providers: [{
     provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2500}

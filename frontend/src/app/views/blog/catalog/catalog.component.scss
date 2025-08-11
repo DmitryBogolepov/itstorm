@@ -1,0 +1,81 @@
+@import "../../../../assets/styles/variables";
+@import "../../../../assets/styles/mixins";
+.catalog {
+  padding-top: 80px;
+  padding-bottom: 120px;
+  .container {
+    .catalog-title {
+      @include head-lora-38;
+      margin-bottom: 40px;
+      color: $blue-main-color;
+    }
+    .catalog-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      .catalog-sorting {
+        .catalog-sorting-head {
+          span {
+            margin-right: 30px;
+            color: $dark-blue-color;
+            font-size: 16px;
+          }
+          svg {
+            height: 20px;
+            width: 20px;
+            fill: $dark-blue-color;
+          }
+        }
+      }
+    }
+
+
+    .catalog-layout {
+
+      .catalog-products{
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+    }
+
+    .pagination {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 60px;
+      .pagination-arrow {
+        fill: $blue-main-color;
+        cursor: pointer;
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+        &:disabled {
+          fill: #646464;
+        }
+        &.next {
+          margin-left: 40px;
+        }
+        &.prev {
+          margin-right: 40px;
+        }
+      }
+      .pagination-pages {
+        gap: 20px;
+        display: flex;
+        align-items: center;
+        .pagination-page {
+          font-size: 20px;
+          color: $dark-blue-color;
+          cursor: pointer;
+          &.active {
+            color: $light-blue-color;
+          }
+        }
+      }
+    }
+  }
+}
