@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {ArticleService} from "../../../shared/services/article.service";
 import {ArticlesType} from "../../../../types/articles.type";
 import {DefaultResponseType} from "../../../../types/default-response.type";
+import {Router} from "@angular/router";
+import {CategoryService} from "../../../shared/services/category.service";
+import {CategoryType} from "../../../../types/category.type";
 
 @Component({
   selector: 'app-catalog',
@@ -12,8 +15,10 @@ export class CatalogComponent implements OnInit {
   sortingOpen = false;
   articles:ArticlesType | null = null;
   pages: number[] = [];
-  constructor(private articleService:ArticleService) { }
-  // activeParams: ActiveParamsType = {types: []};
+  categories:CategoryType[] = [];
+  currentPage = 1;
+  totalPages = 1;
+  constructor(private articleService:ArticleService ,private router:Router,private categoryService:CategoryService) { }
   ngOnInit(): void {
     this.articleService.getAllArticles()
       .subscribe((data:ArticlesType | DefaultResponseType) => {
@@ -24,37 +29,43 @@ export class CatalogComponent implements OnInit {
         for(let i = 1; i <= this.articles.pages; i++) {
           this.pages.push(i);
         }
-      })
+      });
+    this.categoryService.getCategories().subscribe((data:CategoryType[]) => {
+      this.categories = data;
+    })
+
   }
 
-  // openNextPage() {
-  //   if (!this.activeParams.page) {
-  //     this.activeParams.page = 2;
-  //     this.router.navigate(['/catalog'], {
-  //       queryParams: this.activeParams
-  //     });
-  //   } else if (this.activeParams.page && this.activeParams.page < this.pages.length) {
-  //     this.activeParams.page++;
-  //     this.router.navigate(['/catalog'], {
-  //       queryParams: this.activeParams
-  //     });
-  //   }
-  // }
-  // openPage(page: number) {
-  //     this.activeParams.page = page;
-  //     this.router.navigate(['/catalog'], {
-  //       queryParams: this.activeParams
-  //     })
-  //   }
-  // openPrevPage() {
-  //   if (this.activeParams.page && this.activeParams.page > 1) {
-  //     this.activeParams.page--;
-  //     this.router.navigate(['/catalog'], {
-  //       queryParams: this.activeParams
-  //     });
-  //   }
-  // }
+  openNextPage() {
+    if ( this.articles && !this.articles.pages) {
+      this.articles.pages = 2;
+      this.router.navigate(['/catalog'], {
+        queryParams: this.articles
+      });
+    } else if (this.articles && this.articles.pages && this.articles.pages < this.pages.length) {
+      this.articles.pages++;
+      this.router.navigate(['/catalog'], {
+        queryParams: this.articles
+      });
+    }
+  }
+  openPage(page: number) {
+    if (this.articles && this.articles.pages) {
+      this.articles.pages = page;
+      this.router.navigate(['/catalog'], {
+        queryParams: this.articles
+      })
+    }
+    }
+  openPrevPage() {
+    if (this.articles && this.articles.pages && this.articles.pages > 1) {
+      this.articles.pages--;
+      this.router.navigate(['/catalog'], {
+        queryParams: this.articles
+      });
+    }
+  }
   toggleSorting() {
-    this.sortingOpen = !this.sortingOpen;
+    return this.sortingOpen = !this.sortingOpen;
   }
 }

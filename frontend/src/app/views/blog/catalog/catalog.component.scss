@@ -1,30 +1,99 @@
 @import "../../../../assets/styles/variables";
 @import "../../../../assets/styles/mixins";
+
 .catalog {
   padding-top: 80px;
   padding-bottom: 120px;
+
   .container {
     .catalog-title {
       @include head-lora-38;
       margin-bottom: 40px;
       color: $blue-main-color;
     }
+
     .catalog-head {
       display: flex;
       align-items: center;
       justify-content: space-between;
       margin-bottom: 40px;
+
       .catalog-sorting {
         .catalog-sorting-head {
+          cursor: pointer;
+          padding: 12px 23px;
+          display: flex;
+          align-items: center;
           span {
             margin-right: 30px;
             color: $dark-blue-color;
             font-size: 16px;
           }
+
           svg {
             height: 20px;
             width: 20px;
             fill: $dark-blue-color;
+          }
+        }
+
+        .catalog-sorting-body {
+          width: 257px;
+          position: absolute;
+          z-index: 3;
+          display: none;
+          padding: 12px 23px;
+          border-radius: 0 0 5px 5px;
+          background-color: #F5F5F5;
+          color: #8E8E8E;
+          box-sizing: border-box;
+
+          .catalog-sorting-item {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            &.active {
+
+            }
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
+
+        &.open {
+          width: 257px;
+          min-width: 257px;
+          box-sizing: border-box;
+
+          .catalog-sorting-head {
+            color: #000000;
+            background-color: $light-blue-color;
+            border-radius: 5px 5px 0 0;
+            border: 1.5px solid $light-blue-color;
+            padding: 12px 23px;
+            box-sizing: border-box;
+
+            justify-content: space-between;
+          }
+
+          .catalog-sorting-body {
+            background-color: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            border: 1.5px solid $light-blue-color;
+            .catalog-sorting-item {
+              margin-top:19px;
+              color: #BEBEBE;
+              & .active {
+                color: $dark-blue-color;
+              }
+              &:first-child{
+                margin-top: 0;
+              }
+            }
           }
         }
       }
@@ -33,7 +102,7 @@
 
     .catalog-layout {
 
-      .catalog-products{
+      .catalog-products {
         display: flex;
         align-items: center;
         gap: 24px;
@@ -46,31 +115,39 @@
       align-items: center;
       justify-content: center;
       margin-top: 60px;
+
       .pagination-arrow {
         fill: $blue-main-color;
         cursor: pointer;
+
         svg {
           width: 20px;
           height: 20px;
         }
+
         &:disabled {
           fill: #646464;
         }
+
         &.next {
           margin-left: 40px;
         }
+
         &.prev {
           margin-right: 40px;
         }
       }
+
       .pagination-pages {
         gap: 20px;
         display: flex;
         align-items: center;
+
         .pagination-page {
           font-size: 20px;
           color: $dark-blue-color;
           cursor: pointer;
+
           &.active {
             color: $light-blue-color;
           }
