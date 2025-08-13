@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder} from "@angular/forms";
 
 @Component({
   selector: 'app-blog-page',
@@ -7,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private fb:FormBuilder) { }
 
+  commentForm = this.fb.group({
+    text:[''],
+    article:['']
+  })
   ngOnInit(): void {
   }
 

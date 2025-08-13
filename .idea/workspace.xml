@@ -5,16 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33dc15cd-8451-4dd6-9035-adecce70b26d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/assets/images/blog/blog1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/types/comments.type.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/shared/components/comment/comment.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/shared/components/comment/comment.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/shared/components/comment/comment.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/shared/components/comment/comment.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/shared/layout/footer/footer.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/shared/layout/footer/footer.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/shared/layout/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/shared/layout/header/header.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/shared/shared.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/shared/shared.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/views/blog/blog-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/views/blog/blog-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/views/blog/blog.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/views/blog/blog.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/views/blog/catalog/catalog.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/views/blog/catalog/catalog.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +124,7 @@
       <workItem from="1754653015833" duration="2416000" />
       <workItem from="1754911555546" duration="3288000" />
       <workItem from="1755013624837" duration="3699000" />
-      <workItem from="1755104487903" duration="2763000" />
+      <workItem from="1755104487903" duration="3564000" />
     </task>
     <servers />
   </component>

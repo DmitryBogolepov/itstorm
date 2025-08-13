@@ -73,11 +73,11 @@
 
     <div class="blog-comments">
       <div class="comments-title">Комментарии к статье</div>
-      <div class="comments-auth-text" *ngIf="true">
+      <div class="comments-auth-text" *ngIf="false">
         Чтобы оставлять комментарии, <a routerLink="/login">войдите</a> или <a routerLink="/signup">зарегистрируйтесь.</a>
       </div>
-      <form class="comment-submit"  *ngIf="false">
-        <input type="text" placeholder="Напишите Ваш комментарий к статье..." >
+      <form class="comment-submit" formGroup="commentForm"  *ngIf="true">
+        <textarea class="comment-submit-input" formControlName="text" placeholder="Напишите Ваш комментарий к статье..." ></textarea>
         <button class="button blog-btn">Опубликовать комментарий</button>
       </form>
       <div class="blog-comments-section">

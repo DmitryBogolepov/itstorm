@@ -85,6 +85,33 @@
       }
       .comment-submit {
         margin-bottom: 60px;
+        display: flex;
+        flex-direction: column;
+        .comment-submit-input {
+          border: 1.5px solid #709FDC;
+          width: 818px;
+          height: 248px;
+          margin-bottom: 20px;
+          font-size: 14px;
+          line-height: 130%;
+          border-radius: 3px;
+          text-align: start;
+          padding: 20px;
+          box-sizing: border-box;
+          font-family: Montserrat,sans-serif;
+          &::placeholder {
+            color: #A8ABA7;
+          }
+          &:focus {
+            border: 1.5px solid #709FDC;
+          }
+        }
+        .blog-btn {
+          font-size: 16px;
+          width: 422px;
+          height: 51px;
+
+        }
       }
 
       .blog-comments-section {
