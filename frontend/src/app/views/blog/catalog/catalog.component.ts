@@ -39,12 +39,12 @@ export class CatalogComponent implements OnInit {
   openNextPage() {
     if ( this.articles && !this.articles.pages) {
       this.articles.pages = 2;
-      this.router.navigate(['/catalog'], {
+      this.router.navigate(['/blog'], {
         queryParams: this.articles
       });
     } else if (this.articles && this.articles.pages && this.articles.pages < this.pages.length) {
       this.articles.pages++;
-      this.router.navigate(['/catalog'], {
+      this.router.navigate(['/blog'], {
         queryParams: this.articles
       });
     }
@@ -52,7 +52,7 @@ export class CatalogComponent implements OnInit {
   openPage(page: number) {
     if (this.articles && this.articles.pages) {
       this.articles.pages = page;
-      this.router.navigate(['/catalog'], {
+      this.router.navigate(['/blog'], {
         queryParams: this.articles
       })
     }
@@ -60,7 +60,7 @@ export class CatalogComponent implements OnInit {
   openPrevPage() {
     if (this.articles && this.articles.pages && this.articles.pages > 1) {
       this.articles.pages--;
-      this.router.navigate(['/catalog'], {
+      this.router.navigate(['/blog'], {
         queryParams: this.articles
       });
     }

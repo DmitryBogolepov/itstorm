@@ -24,6 +24,7 @@
         font-size: 14px;
         line-height: 130%;
         color: #BEBEBE;
+        margin-top: 10px;
       }
     }
   }
@@ -38,13 +39,19 @@
   .comment-reactions {
     display: flex;
     align-items: center;
-    .comment{
+    .comment-icon{
       margin-right: 15px;
+      display: flex;
+      align-items: center;
       .comment-number {
         margin-right: 3px;
         font-weight: 600;
         font-size: 14px;
         color: $dark-blue-color;
+      }
+      .comment-svg {
+        width: 24px;
+        height: 24px;
       }
     }
     .comment-question {

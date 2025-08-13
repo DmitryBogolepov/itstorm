@@ -27,7 +27,8 @@ import {TextLengthPipe} from "./pipes/textLength.pipe";
   ],
   exports: [
     LoaderComponent,
-    ArticleComponent
+    ArticleComponent,
+    CommentComponent
   ],
   imports: [
     CommonModule,
