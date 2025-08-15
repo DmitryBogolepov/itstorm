@@ -3,7 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {ArticlePopularType} from "../../../types/article-popular.type";
 import {environment} from "../../../environments/environment";
 import {Observable} from "rxjs";
-import {ArticlesType, ArticleType} from "../../../types/articles.type";
+import {Article, ArticlesType, ArticleType} from "../../../types/articles.type";
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +24,8 @@ export class ArticleService {
   }
   getArticle(url:string):Observable<ArticleType> {
     return this.http.get<ArticleType>(environment.api + 'articles/' + url)
+  }
+  getRelatedArticles(url:string):Observable<Article[]> {
+    return this.http.get<Article[]>(environment.api + 'articles/related/' + url)
   }
 }

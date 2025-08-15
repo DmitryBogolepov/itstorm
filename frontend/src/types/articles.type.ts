@@ -3,17 +3,17 @@ import {CommentType} from "./comments.type";
 export interface ArticlesType {
   count:number,
   pages:number,
-  items: [
-    {
-      "id": string,
-      "title": string,
-      "description": string,
-      "image": string,
-      "date": string,
-      "category": string,
-      "url": string
-    }
-  ]
+  items: Article[]
+}
+
+export interface Article {
+  "id": string,
+  "title": string,
+  "description": string,
+  "image": string,
+  "date": string,
+  "category": string,
+  "url": string
 }
 
 export interface ArticleType {

@@ -5,7 +5,7 @@ import {ActivatedRoute} from "@angular/router";
 import {UserType} from "../../../../types/user.type";
 import {DefaultResponseType} from "../../../../types/default-response.type";
 import {ArticleService} from "../../../shared/services/article.service";
-import {ArticleType} from "../../../../types/articles.type";
+import {Article, ArticleType} from "../../../../types/articles.type";
 import {DomSanitizer, SafeHtml} from "@angular/platform-browser";
 
 @Component({
@@ -23,6 +23,7 @@ export class BlogPageComponent implements OnInit {
   })
   safeText!: SafeHtml;
   article:ArticleType | null= null;
+  relatedArticles:Article[] | null = null;
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
 
@@ -31,6 +32,9 @@ export class BlogPageComponent implements OnInit {
         if (this.article?.text) {
           this.safeText = this.sanitizer.bypassSecurityTrustHtml(this.article.text);
         }
+      });
+      this.articlesService.getRelatedArticles(params['url']).subscribe((data:Article[]) => {
+        this.relatedArticles = data;
       })
     })
 
@@ -52,4 +56,9 @@ export class BlogPageComponent implements OnInit {
     }
   }
 
+
+
+  sendComment() {
+
+  }
 }

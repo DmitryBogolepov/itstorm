@@ -82,6 +82,11 @@
           font-weight: 400;
           margin-top: 60px;
         }
+        .also-articles {
+          display: flex;
+          flex-direction: column;
+          gap: 60px;
+        }
       }
     }
 
