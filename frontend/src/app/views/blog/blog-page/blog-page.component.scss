@@ -67,6 +67,24 @@
       }
     }
 
+
+    .blog-info {
+      display: flex;
+      .article-all-info {
+        width: 818px;
+      }
+      .also-read {
+        margin-left: 130px;
+        .also-read-title {
+          color:$blue-main-color;
+          font-family: Lora,sans-serif;
+          font-size: 26px;
+          font-weight: 400;
+          margin-top: 60px;
+        }
+      }
+    }
+
     .blog-comments {
       margin-top: 60px;
       .comments-title {

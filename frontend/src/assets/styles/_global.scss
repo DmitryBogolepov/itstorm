@@ -62,3 +62,29 @@ html,body {
   background-color: $blue-main-color!important;
 }
 
+.blog-info p {
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 130%;
+  color: $dark-blue-color;
+  margin-bottom: 20px;
+  b {
+    font-weight: 500;
+  }
+}
+.blog-info h1 {
+  @include head-lora-38;
+  color: $blue-main-color;
+  margin-bottom: 40px;
+}
+
+.blog-info h3 {
+  font-family: Montserrat,sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 130%;
+  margin-top:40px;
+  margin-bottom: 20px;
+  color: $blue-main-color;
+}

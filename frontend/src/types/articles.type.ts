@@ -1,3 +1,5 @@
+import {CommentType} from "./comments.type";
+
 export interface ArticlesType {
   count:number,
   pages:number,
@@ -12,4 +14,17 @@ export interface ArticlesType {
       "url": string
     }
   ]
+}
+
+export interface ArticleType {
+  text:string
+  comments:CommentType[],
+  commentsCount:number,
+  id:string,
+  title:string,
+  description:string,
+  image:string,
+  date:string,
+  category:string,
+  url:string
 }

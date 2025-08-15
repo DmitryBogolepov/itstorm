@@ -3,5 +3,5 @@
   <div class="article-image" [ngStyle]="{ 'background-image': 'url(' + serverStaticPath + article.image + ')' }"></div>
   <div class="article-title">{{article.title}}</div>
   <div class="article-description">{{article.description | textLength: 200}}</div>
-  <a class="article-action">Читать дальше</a>
+  <a class="article-action" [routerLink]="'/articles/' + article.url">Читать дальше</a>
 </div>

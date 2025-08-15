@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
   isLogged = false;
   userData: UserType | null = null;
 
-  constructor(private authService: AuthService, private _snackBar: MatSnackBar, private router: Router) {
+  constructor(private authService: AuthService, private _snackBar: MatSnackBar, private router: Router,) {
     this.isLogged = this.authService.getIsLoggedIn();
   }
 

@@ -1,16 +1,16 @@
-<div class="blog-page">
+<div class="blog-page" *ngIf="article">
   <div class="container">
     <div class="blog-small-title">
       <div class="title-name">Блог /</div>
-      <div class="title-blog-name">Дизайн-ревью: в чем его преимущества и особенности?</div>
+      <div class="title-blog-name">{{article.title}}</div>
     </div>
     <div class="blog-main">
       <div class="blog-main-info">
         <div class="blog-main-title">
-          Дизайн-ревью: в чем его преимущества и особенности?
+          {{article?.title}}
         </div>
         <div class="blog-main-description">
-          Узнайте, что такое дизайн-ревью и для чего проводить. Не всегда разработчики и дизайнеры понимают ценность дизайн-ревью. Разбираем, как внедрение этого процесса повышает эффективность работы всей команды.
+          {{article.description}}
         </div>
       </div>
 
@@ -23,8 +23,11 @@
     </div>
 
     <div class="blog-info">
+      <div [innerHTML]="safeText" class="article-all-info"></div>
+      <div class="also-read">
+        <div class="also-read-title">Читайте также:</div>
 
-
+      </div>
     </div>
 
 
@@ -73,16 +76,15 @@
 
     <div class="blog-comments">
       <div class="comments-title">Комментарии к статье</div>
-      <div class="comments-auth-text" *ngIf="false">
+      <div class="comments-auth-text" *ngIf="!isLogged">
         Чтобы оставлять комментарии, <a routerLink="/login">войдите</a> или <a routerLink="/signup">зарегистрируйтесь.</a>
       </div>
-      <form class="comment-submit" formGroup="commentForm"  *ngIf="true">
+      <form class="comment-submit" [formGroup]="commentForm"  *ngIf="isLogged">
         <textarea class="comment-submit-input" formControlName="text" placeholder="Напишите Ваш комментарий к статье..." ></textarea>
         <button class="button blog-btn">Опубликовать комментарий</button>
       </form>
       <div class="blog-comments-section">
         <app-comment></app-comment>
-
       </div>
       <div class="load-more">
         <div class="load-more-text">Загрузить ещё комментарии</div>
