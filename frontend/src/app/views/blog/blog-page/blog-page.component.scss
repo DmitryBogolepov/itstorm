@@ -138,7 +138,9 @@
       }
 
       .blog-comments-section {
-
+      display: flex;
+        flex-direction: column;
+        gap: 40px;
 
 
       }

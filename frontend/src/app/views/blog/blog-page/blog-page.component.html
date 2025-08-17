@@ -71,12 +71,12 @@
           <div class="comments-auth-text" *ngIf="!isLogged">
             Чтобы оставлять комментарии, <a routerLink="/login">войдите</a> или <a routerLink="/signup">зарегистрируйтесь.</a>
           </div>
-          <form class="comment-submit" [formGroup]="commentForm"  *ngIf="isLogged">
-            <textarea class="comment-submit-input" formControlName="text" placeholder="Напишите Ваш комментарий к статье..." ></textarea>
-            <button class="button blog-btn" (click)="sendComment()">Опубликовать комментарий</button>
+          <form class="comment-submit" [formGroup]="commentForm"  *ngIf="true">
+            <textarea class="comment-submit-input" formControlName="message" placeholder="Напишите Ваш комментарий к статье..." ></textarea>
+            <button type="button" class="button blog-btn" (click)="sendComment()">Опубликовать комментарий</button>
           </form>
           <div class="blog-comments-section">
-            <app-comment></app-comment>
+            <app-comment class="comment" *ngFor="let comment of comments.comments" [comment]="comment" ></app-comment>
           </div>
           <div class="load-more">
             <div class="load-more-text">Загрузить ещё комментарии</div>
