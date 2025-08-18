@@ -34,7 +34,9 @@
     }
 
     .contact-number {
+
       a {
+        width: 144px;
         text-decoration: none;
         color: $blue-main-color;
         font-family: Montserrat,sans-serif;
@@ -56,7 +58,9 @@
         font-family: Montserrat,sans-serif;
         font-weight: 500;
         font-size: 16px;
-        width: 150px;
+        &.user-authorized {
+          width: 150px;
+        }
       }
       &.active {
         margin-left: 45px;

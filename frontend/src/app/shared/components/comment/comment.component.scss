@@ -39,6 +39,8 @@
   .comment-reactions {
     display: flex;
     align-items: center;
+
+
     .comment-icon{
       margin-right: 15px;
       display: flex;
@@ -52,10 +54,15 @@
       .comment-svg {
         width: 24px;
         height: 24px;
+        cursor: pointer;
       }
     }
     .comment-question {
-
+      .comment-svg {
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+      }
     }
   }
 }

@@ -17,9 +17,8 @@ import {CommentsType} from "../../../../types/comments.type";
   styleUrls: ['./blog-page.component.scss']
 })
 export class BlogPageComponent implements OnInit {
-
-  constructor(private _snackBar:MatSnackBar,private commentsService:CommentsService,private fb:FormBuilder,private authService:AuthService,private activatedRoute:ActivatedRoute,private articlesService:ArticleService,private sanitizer: DomSanitizer) { }
   isLogged = false;
+  constructor(private _snackBar:MatSnackBar,private commentsService:CommentsService,private fb:FormBuilder,private authService:AuthService,private activatedRoute:ActivatedRoute,private articlesService:ArticleService,private sanitizer: DomSanitizer) { }
   articleUrl!:string;
   commentForm = this.fb.group({
     message:[''],
@@ -48,9 +47,7 @@ export class BlogPageComponent implements OnInit {
       this.relatedArticles = data;
     })
 
-    this.authService.isLogged$.subscribe((isLogged: boolean) => {
-      this.isLogged = isLogged;
-    });
+    this.isLogged = this.authService.getIsLoggedIn()
 
     if (this.isLogged) {
       this.authService.getUserData().subscribe({
@@ -60,6 +57,15 @@ export class BlogPageComponent implements OnInit {
             throw new Error(error);
           }
         }
+      })
+    }
+  }
+
+
+  showMore() {
+    if (this.article) {
+      this.commentsService.getComments(this.article.id).subscribe(data => {
+        this.comments = data;
       })
     }
   }
@@ -75,14 +81,8 @@ export class BlogPageComponent implements OnInit {
           } else {
             this._snackBar.open('Комментарий успешно отправлен!')
           }
-          this.commentForm.clearValidators()
+          this.commentForm.clearValidators();
         })
       }
-      if (this.article) {
-        this.commentsService.getComments(this.article.id).subscribe(data => {
-          this.comments = data;
-        })
-      }
-
   }
 }
