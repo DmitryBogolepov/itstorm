@@ -36,7 +36,7 @@ export class HeaderComponent implements OnInit {
         },
         error: (errorResponse: HttpErrorResponse) => {
           if (errorResponse.error && errorResponse.error.message) {
-            this._snackBar.open(errorResponse.error.message);
+            // this._snackBar.open(errorResponse.error.message);
           }
         }
       })
