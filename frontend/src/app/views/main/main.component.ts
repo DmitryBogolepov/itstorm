@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
 import {ArticleService} from "../../shared/services/article.service";
 import {ArticlePopularType} from "../../../types/article-popular.type";
@@ -17,6 +17,7 @@ export class MainComponent implements OnInit {
   constructor(private fb:FormBuilder,private _snackBar: MatSnackBar ,private articleService:ArticleService,private requestService:RequestService) { }
   showSuccess = false;
   isShowed = false;
+  isOpen = false;
   reviews = [
     {
       name: 'Станислав',
@@ -74,6 +75,10 @@ export class MainComponent implements OnInit {
   modalShow() {
     this.isShowed = !this.isShowed;
   }
+  modalShowWithService(service:string) {
+    this.isShowed = !this.isShowed;
+    this.modalOrderForm.get('service')?.setValue(service)
+  }
 
   submitOrder() {
     if (this.modalOrderForm.valid && this.modalOrderForm.value.service && this.modalOrderForm.value.name && this.modalOrderForm.value.phone) {
@@ -96,5 +101,13 @@ export class MainComponent implements OnInit {
         })
 
     }
+  }
+  toggleDropdown() {
+    this.isOpen = !this.isOpen;
+  }
+  selectOption(value: string, event: Event) {
+    event.stopPropagation();
+    this.modalOrderForm.get('service')?.setValue(value);
+    this.isOpen = false;
   }
 }

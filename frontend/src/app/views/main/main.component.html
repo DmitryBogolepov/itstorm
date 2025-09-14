@@ -54,7 +54,7 @@
           <div class="service-item-description">В краткие сроки мы создадим качественный и самое главное продающий сайт для продвижения Вашего бизнеса!</div>
           <div class="service-item-action">
             <div class="service-item-price">От 7 500₽</div>
-            <button class="button service-button">Подробнее</button>
+            <button class="button service-button" (click)="modalShowWithService('Создание сайтов')">Подробнее</button>
           </div>
         </div>
         <div class="services-item">
@@ -63,7 +63,7 @@
           <div class="service-item-description">Вам нужен качественный SMM-специалист или грамотный таргетолог? Мы готовы оказать Вам услугу “Продвижения” на наивысшем уровне!</div>
           <div class="service-item-action">
             <div class="service-item-price">От 3 500₽</div>
-            <button class="button service-button">Подробнее</button>
+            <button class="button service-button" (click)="modalShowWithService('Продвижение')">Подробнее</button>
           </div>
         </div>
         <div class="services-item">
@@ -72,7 +72,7 @@
           <div class="service-item-description">Без рекламы не может обойтись ни один бизнес или специалист. Обращаясь к нам, мы гарантируем быстрый прирост клиентов за счёт правильно настроенной рекламы.</div>
           <div class="service-item-action">
             <div class="service-item-price">От 1 000₽</div>
-            <button class="button service-button">Подробнее</button>
+            <button class="button service-button" (click)="modalShowWithService('Реклама')">Подробнее</button>
           </div>
         </div>
         <div class="services-item">
@@ -81,7 +81,7 @@
           <div class="service-item-description">Наши копирайтеры готовы написать Вам любые продающие текста, которые не только обеспечат рост охватов, но и помогут выйти на новый уровень в продажах.</div>
           <div class="service-item-action">
             <div class="service-item-price">От 750₽</div>
-            <button class="button service-button">Подробнее</button>
+            <button class="button service-button" (click)="modalShowWithService('Копирайтинг')">Подробнее</button>
           </div>
         </div>
       </div>
@@ -221,9 +221,21 @@
         <div class="main-modal-title">Заявка на услугу</div>
         <div class="main-modal-form" >
           <form [formGroup]="modalOrderForm">
-            <input type="text" class="reg-input modal-form" formControlName="service" placeholder="Выбранная услуга"
-                   [ngStyle]="{'border-color':modalOrderForm.get('service')?.invalid
-                 && (modalOrderForm.get('service')?.dirty || modalOrderForm.get('service')?.touched) ? 'red' : ''}">
+            <div class="custom-select" (click)="toggleDropdown()">
+              <div class="selected"
+                   [ngClass]="{
+       'placeholder': !modalOrderForm.get('service')?.value,
+       'active': modalOrderForm.get('service')?.value
+     }">
+                {{ modalOrderForm.get('service')?.value || 'Выберите услугу' }}
+              </div>
+              <ul *ngIf="isOpen" class="options">
+                <li (click)="selectOption('Создание сайтов', $event)">Создание сайтов</li>
+                <li (click)="selectOption('Продвижение', $event)">Продвижение</li>
+                <li (click)="selectOption('Реклама', $event)">Реклама</li>
+                <li (click)="selectOption('Копирайтинг', $event)">Копирайтинг</li>
+              </ul>
+            </div>
             <input type="text" class="reg-input modal-form" formControlName="name" placeholder="Ваше имя"
                    [ngStyle]="{'border-color':modalOrderForm.get('name')?.invalid
                  && (modalOrderForm.get('name')?.dirty || modalOrderForm.get('name')?.touched) ? 'red' : ''}">
@@ -232,7 +244,6 @@
                  && (modalOrderForm.get('phone')?.dirty || modalOrderForm.get('phone')?.touched) ? 'red' : ''}">
             <button class="button auth-button" [disabled]="modalOrderForm.invalid" (click)="submitOrder()">Оставить заявку</button>
           </form>
-
         </div>
       </div>
       <div class="main-modal-form success" *ngIf="showSuccess">
