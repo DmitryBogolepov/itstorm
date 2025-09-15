@@ -18,6 +18,7 @@ export class CatalogComponent implements OnInit {
   categories:CategoryType[] = [];
   currentPage = 1;
   totalPages = 1;
+
   constructor(private articleService:ArticleService ,private router:Router,private categoryService:CategoryService) { }
   ngOnInit(): void {
     this.articleService.getAllArticles()
@@ -36,6 +37,9 @@ export class CatalogComponent implements OnInit {
 
   }
 
+  filter(value:string) {
+
+  }
   openNextPage() {
     if ( this.articles && !this.articles.pages) {
       this.articles.pages = 2;
