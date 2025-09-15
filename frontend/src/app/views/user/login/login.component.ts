@@ -6,6 +6,7 @@ import {LoginResponseType} from "../../../../types/login-response.type";
 import {DefaultResponseType} from "../../../../types/default-response.type";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {HttpErrorResponse} from "@angular/common/http";
+import {UserType} from "../../../../types/user.type";
 
 @Component({
   selector: 'app-login',
@@ -44,6 +45,13 @@ export class LoginComponent implements OnInit {
             }
             this.authService.setTokens(loginResponse.accessToken,loginResponse.refreshToken);
             this.authService.userId = loginResponse.userId;
+            this.authService.getUserData().subscribe({
+              next: (userData: UserType | DefaultResponseType) => {
+                if (!('error' in userData)) {
+                  this.authService.user$.next(userData as UserType); //
+                }
+              }
+            });
             this._snackBar.open('Вы успешно авторизовались');
             this.router.navigate(['/']);
           },

@@ -23,6 +23,9 @@ export class HeaderComponent implements OnInit {
     this.authService.isLogged$.subscribe((isLogged: boolean) => {
       this.isLogged = isLogged;
     });
+    this.authService.user$.subscribe(user => {
+      this.userData = user;
+    });
     if (this.isLogged) {
       this.authService.getUserData().subscribe({
         next: (data: UserType | DefaultResponseType) => {
@@ -57,6 +60,8 @@ export class HeaderComponent implements OnInit {
   doLogout(): void {
     this.authService.removeTokens();
     this.authService.userId = null;
+    this.authService.user$.next(null);
+    this.authService.isLogged$.next(false);
     this._snackBar.open('Вы вышли из системы');
     this.router.navigate(['/'])
   }
