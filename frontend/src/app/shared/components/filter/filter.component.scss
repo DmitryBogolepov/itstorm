@@ -1,0 +1,21 @@
+@import "../../../../assets/styles/variables";
+.catalog-sorting-item {
+  margin-top:19px;
+  color: #BEBEBE;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 23px ;
+  box-sizing: border-box;
+  margin-bottom: 2px;
+  &.active {
+    .catalog-sorting-item-name {
+      color: $dark-blue-color;
+    }
+  }
+
+
+  &:first-child{
+    margin-top: 0;
+  }
+}

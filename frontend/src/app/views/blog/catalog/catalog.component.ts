@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ArticleService} from "../../../shared/services/article.service";
 import {ArticlesType} from "../../../../types/articles.type";
 import {DefaultResponseType} from "../../../../types/default-response.type";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {CategoryService} from "../../../shared/services/category.service";
 import {CategoryType} from "../../../../types/category.type";
 
@@ -16,10 +16,9 @@ export class CatalogComponent implements OnInit {
   articles:ArticlesType | null = null;
   pages: number[] = [];
   categories:CategoryType[] = [];
-  currentPage = 1;
-  totalPages = 1;
+  activeParams:{page:number,categories:string[]} = {page:0,categories:[]}
 
-  constructor(private articleService:ArticleService ,private router:Router,private categoryService:CategoryService) { }
+  constructor(private activatedRoute:ActivatedRoute,private articleService:ArticleService ,private router:Router,private categoryService:CategoryService) { }
   ngOnInit(): void {
     this.articleService.getAllArticles()
       .subscribe((data:ArticlesType | DefaultResponseType) => {
@@ -37,9 +36,6 @@ export class CatalogComponent implements OnInit {
 
   }
 
-  filter(value:string) {
-
-  }
   openNextPage() {
     if ( this.articles && !this.articles.pages) {
       this.articles.pages = 2;

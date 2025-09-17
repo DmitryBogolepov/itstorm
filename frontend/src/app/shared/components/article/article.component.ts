@@ -11,6 +11,7 @@ export class ArticleComponent implements OnInit {
   @Input() article!:ArticlePopularType;
   constructor() { }
   serverStaticPath = environment.serverStaticPath;
+
   ngOnInit(): void {
   }
 

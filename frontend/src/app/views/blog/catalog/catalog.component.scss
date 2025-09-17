@@ -42,21 +42,15 @@
           position: absolute;
           z-index: 3;
           display: none;
-          padding: 12px 23px;
           border-radius: 0 0 5px 5px;
           background-color: #F5F5F5;
           color: #8E8E8E;
           box-sizing: border-box;
-
           .catalog-sorting-item {
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            &.active {
-
-            }
-
             &:last-child {
               margin-bottom: 0;
             }
@@ -67,7 +61,6 @@
           width: 257px;
           min-width: 257px;
           box-sizing: border-box;
-
           .catalog-sorting-head {
             color: #000000;
             background-color: $light-blue-color;
@@ -75,25 +68,13 @@
             border: 1.5px solid $light-blue-color;
             padding: 12px 23px;
             box-sizing: border-box;
-
             justify-content: space-between;
           }
-
           .catalog-sorting-body {
             background-color: #FFFFFF;
             display: flex;
             flex-direction: column;
             border: 1.5px solid $light-blue-color;
-            .catalog-sorting-item {
-              margin-top:19px;
-              color: #BEBEBE;
-              & .active {
-                color: $dark-blue-color;
-              }
-              &:first-child{
-                margin-top: 0;
-              }
-            }
           }
         }
       }

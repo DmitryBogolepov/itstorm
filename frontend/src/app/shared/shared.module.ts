@@ -12,6 +12,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatMenuModule} from '@angular/material/menu';
 import {TextLengthPipe} from "./pipes/textLength.pipe";
+import { FilterComponent } from './components/filter/filter.component';
 
 
 
@@ -23,13 +24,15 @@ import {TextLengthPipe} from "./pipes/textLength.pipe";
     FooterComponent,
     ArticleComponent,
     CommentComponent,
-    TextLengthPipe
+    TextLengthPipe,
+    FilterComponent
   ],
-  exports: [
-    LoaderComponent,
-    ArticleComponent,
-    CommentComponent
-  ],
+    exports: [
+        LoaderComponent,
+        ArticleComponent,
+        CommentComponent,
+        FilterComponent
+    ],
   imports: [
     CommonModule,
     RouterOutlet,
