@@ -1,7 +1,7 @@
 <div class="article">
   <div class="article-type">{{article.category}}</div>
   <div class="article-image" [ngStyle]="{ 'background-image': 'url(' + serverStaticPath + article.image + ')' }"></div>
-  <div class="article-title">{{article.title}}</div>
+  <div class="article-title">{{article.title | textLength:80}}</div>
   <div class="article-description">{{article.description | textLength: 200}}</div>
   <a class="article-action" [routerLink]="'/articles/' + article.url">Читать дальше</a>
 </div>

@@ -12,7 +12,6 @@ export class ArticleComponent implements OnInit {
   constructor() { }
   serverStaticPath = environment.serverStaticPath;
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 }

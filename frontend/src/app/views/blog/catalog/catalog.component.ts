@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {ArticleService} from "../../../shared/services/article.service";
 import {ArticlesType} from "../../../../types/articles.type";
-import {DefaultResponseType} from "../../../../types/default-response.type";
 import {ActivatedRoute, Router} from "@angular/router";
 import {CategoryService} from "../../../shared/services/category.service";
 import {CategoryType} from "../../../../types/category.type";
+import {ActiveParamsType} from "../../../../types/activeParams.type";
 
 @Component({
   selector: 'app-catalog',
@@ -16,55 +16,62 @@ export class CatalogComponent implements OnInit {
   articles:ArticlesType | null = null;
   pages: number[] = [];
   categories:CategoryType[] = [];
-  activeParams:{page:number,categories:string[]} = {page:0,categories:[]}
+  activeParams:ActiveParamsType = {categories:[]}
 
   constructor(private activatedRoute:ActivatedRoute,private articleService:ArticleService ,private router:Router,private categoryService:CategoryService) { }
   ngOnInit(): void {
-    this.articleService.getAllArticles()
-      .subscribe((data:ArticlesType | DefaultResponseType) => {
-        if ((data as DefaultResponseType).error !== undefined) {
-          throw new Error((data as DefaultResponseType).message)
-        }
-        this.articles = data as ArticlesType;
-        for(let i = 1; i <= this.articles.pages; i++) {
-          this.pages.push(i);
-        }
-      });
+    this.activatedRoute.queryParams.subscribe(params => {
+      this.activeParams.categories = params['categories']
+        ? params['categories'].split(',')
+        : [];
+      this.activeParams.page = params['page'] ? +params['page'] : 1;
+
+      this.loadArticles();
+    });
     this.categoryService.getCategories().subscribe((data:CategoryType[]) => {
       this.categories = data;
     })
+  }
 
+  private loadArticles() {
+    this.articleService.getArticles(this.activeParams).subscribe((data: ArticlesType) => {
+      this.articles = data;
+      this.updatePages();
+    });
+  }
+
+  private updatePages() {
+    this.pages = [];
+    if (this.articles && this.articles.pages) {
+      for (let i = 1; i <= this.articles.pages; i++) {
+        this.pages.push(i);
+      }
+    }
+  }
+
+  openPage(page: number) {
+    this.router.navigate([], {
+      relativeTo: this.activatedRoute,
+      queryParams: {
+        ...this.activatedRoute.snapshot.queryParams,
+        page
+      },
+      queryParamsHandling: 'merge'
+    });
   }
 
   openNextPage() {
-    if ( this.articles && !this.articles.pages) {
-      this.articles.pages = 2;
-      this.router.navigate(['/blog'], {
-        queryParams: this.articles
-      });
-    } else if (this.articles && this.articles.pages && this.articles.pages < this.pages.length) {
-      this.articles.pages++;
-      this.router.navigate(['/blog'], {
-        queryParams: this.articles
-      });
+    if (this.activeParams.page && this.activeParams.page < this.pages.length) {
+      this.openPage(this.activeParams.page + 1);
     }
   }
-  openPage(page: number) {
-    if (this.articles && this.articles.pages) {
-      this.articles.pages = page;
-      this.router.navigate(['/blog'], {
-        queryParams: this.articles
-      })
-    }
-    }
+
   openPrevPage() {
-    if (this.articles && this.articles.pages && this.articles.pages > 1) {
-      this.articles.pages--;
-      this.router.navigate(['/blog'], {
-        queryParams: this.articles
-      });
+    if (this.activeParams.page && this.activeParams.page > 1) {
+      this.openPage(this.activeParams.page - 1);
     }
   }
+
   toggleSorting() {
     return this.sortingOpen = !this.sortingOpen;
   }
