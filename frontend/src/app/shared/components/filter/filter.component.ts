@@ -1,46 +1,32 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {CategoryType} from "../../../../types/category.type";
-import {ActivatedRoute, Router} from "@angular/router";
-import {ActiveParamsType} from "../../../../types/activeParams.type";
+
+import { Component, Input } from '@angular/core';
+import { CategoryType } from "../../../../types/category.type";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: 'app-filter',
   templateUrl: './filter.component.html',
   styleUrls: ['./filter.component.scss']
 })
-export class FilterComponent implements OnInit {
-  @Input() category!:CategoryType;
-  isActive:boolean =false;
-  activeParams:ActiveParamsType ={categories:[]}
-  constructor(private activatedRoute:ActivatedRoute,private router:Router) { }
+export class FilterComponent {
+  @Input() category!: CategoryType;
+  @Input() activeCategories: string[] = [];
 
-  ngOnInit(): void {
-    this.activatedRoute.queryParams.subscribe(params => {
-      this.activeParams.categories = params['categories']
-        ? params['categories'].split(',')
-        : [];
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
 
-      this.activeParams.page = params['page']
-        ? +params['page']
-        : 1;
-
-      this.isActive = this.activeParams.categories.includes(this.category.url);
-    });
+  get isActive(): boolean {
+    return this.activeCategories.includes(this.category.url);
   }
 
   updateFilter(url: string) {
-    this.isActive = !this.isActive;
+    // Берём актуальные категории из родителя
+    let categories = [...this.activeCategories];
 
-    let categories = [...this.activeParams.categories];
-
-    if (this.isActive) {
-      if (!categories.includes(url)) {
-        categories.push(url);
-      }
+    if (categories.includes(url)) {
+      categories = categories.filter((item: string) => item !== url);
     } else {
-      categories = categories.filter(item => item !== url);
+      categories.push(url);
     }
-    this.activeParams.categories = categories;
 
     this.router.navigate([], {
       relativeTo: this.activatedRoute,

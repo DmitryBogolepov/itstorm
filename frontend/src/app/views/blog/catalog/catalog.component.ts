@@ -5,6 +5,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {CategoryService} from "../../../shared/services/category.service";
 import {CategoryType} from "../../../../types/category.type";
 import {ActiveParamsType} from "../../../../types/activeParams.type";
+import {AppliedFilterType} from "../../../../types/applied-filter.type";
 
 @Component({
   selector: 'app-catalog',
@@ -17,26 +18,55 @@ export class CatalogComponent implements OnInit {
   pages: number[] = [];
   categories:CategoryType[] = [];
   activeParams:ActiveParamsType = {categories:[]}
-
+  appliedFilters: AppliedFilterType[] = [];
   constructor(private activatedRoute:ActivatedRoute,private articleService:ArticleService ,private router:Router,private categoryService:CategoryService) { }
   ngOnInit(): void {
-    this.activatedRoute.queryParams.subscribe(params => {
-      this.activeParams.categories = params['categories']
-        ? params['categories'].split(',')
-        : [];
-      this.activeParams.page = params['page'] ? +params['page'] : 1;
-
-      this.loadArticles();
-    });
     this.categoryService.getCategories().subscribe((data:CategoryType[]) => {
       this.categories = data;
-    })
+      this.activatedRoute.queryParams.subscribe(params => {
+        this.updateActiveParams(params);
+        this.loadArticles();
+      });
+
+    });
+  }
+  private updateActiveParams(params: any) {
+    this.activeParams.categories = params['categories']
+      ? params['categories'].split(',')
+      : [];
+    this.activeParams.page = params['page'] ? +params['page'] : 1;
+
+    this.appliedFilters = this.activeParams.categories
+      .map(url => this.categories.find(type => type.url === url))
+      .filter((foundType): foundType is CategoryType => !!foundType)
+      .map(foundType => ({
+        name: foundType.name,
+        url: foundType.url
+      }));
   }
 
   private loadArticles() {
     this.articleService.getArticles(this.activeParams).subscribe((data: ArticlesType) => {
       this.articles = data;
       this.updatePages();
+    });
+  }
+
+  removeFilter(filter:AppliedFilterType) {
+    this.activeParams.categories = this.activeParams.categories.filter(item => item !== filter.url);
+
+    this.router.navigate([], {
+      relativeTo: this.activatedRoute,
+      queryParams: { ...this.activeParams }
+    }).then(() => {
+      this.appliedFilters = this.activeParams.categories
+        .map(url => this.categories.find(type => type.url === url))
+        .filter((foundType): foundType is CategoryType => !!foundType)
+        .map(foundType => ({
+          name: foundType.name,
+          url: foundType.url
+        }));
+      this.loadArticles();
     });
   }
 

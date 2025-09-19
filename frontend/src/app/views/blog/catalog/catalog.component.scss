@@ -17,7 +17,28 @@
       align-items: center;
       justify-content: space-between;
       margin-bottom: 40px;
-
+      .catalog-applied-filters {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        .catalog-applied-filter {
+          border: 1.5px solid #709FDC;
+          padding: 10px 20px;
+          box-sizing: border-box;
+          border-radius: 5px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          span {
+            color: $blue-main-color;
+            margin-right: 8px;
+          }
+          svg {
+            cursor: pointer;
+          }
+        }
+      }
       .catalog-sorting {
         .catalog-sorting-head {
           cursor: pointer;
