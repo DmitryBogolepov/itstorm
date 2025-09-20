@@ -13,8 +13,13 @@ export class CommentsService {
   constructor(private http:HttpClient) { }
 
 
-  getComments(id:string):Observable<CommentsType> {
-    return this.http.get<CommentsType>(environment.api + 'comments/' + id)
+  getComments(id:string,offset:number):Observable<CommentsType> {
+    return this.http.get<CommentsType>(environment.api + 'comments', {
+      params: {
+        offset:offset,
+        article:id
+      }
+    })
   }
 
   sendComment(text:string,article:string):Observable<DefaultResponseType> {

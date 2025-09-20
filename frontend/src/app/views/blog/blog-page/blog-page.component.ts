@@ -20,6 +20,7 @@ export class BlogPageComponent implements OnInit {
   isLogged = false;
   constructor(private _snackBar:MatSnackBar,private commentsService:CommentsService,private fb:FormBuilder,private authService:AuthService,private activatedRoute:ActivatedRoute,private articlesService:ArticleService,private sanitizer: DomSanitizer) { }
   articleUrl!:string;
+  isLoadingMore = false;
   commentForm = this.fb.group({
     message:[''],
     article:['']
@@ -33,44 +34,39 @@ export class BlogPageComponent implements OnInit {
   relatedArticles:Article[] | null = null;
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
-      this.articleUrl = params['url']
-    })
-    this.articlesService.getArticle(this.articleUrl ).subscribe((data:ArticleType) => {
-      this.article = data;
-      this.comments.allCount = data.commentsCount;
-      this.comments.comments = data.comments;
-      if (this.article?.text) {
-        this.safeText = this.sanitizer.bypassSecurityTrustHtml(this.article.text);
-      }
-    });
-    this.articlesService.getRelatedArticles(this.articleUrl ).subscribe((data:Article[]) => {
-      this.relatedArticles = data;
-    })
+      this.articleUrl = params['url'];
 
-    this.isLogged = this.authService.getIsLoggedIn()
+      this.articlesService.getArticle(this.articleUrl).subscribe((data: ArticleType) => {
+        this.article = data;
+        this.comments.allCount = data.commentsCount;
+        this.comments.comments = data.comments;
 
-    if (this.isLogged) {
-      this.authService.getUserData().subscribe({
-        next: (data: UserType | DefaultResponseType) => {
-          if ('error' in data) {
-            const error = data.message;
-            throw new Error(error);
-          }
+        if (this.article?.text) {
+          this.safeText = this.sanitizer.bypassSecurityTrustHtml(this.article.text);
         }
-      })
+      });
+
+      this.articlesService.getRelatedArticles(this.articleUrl).subscribe((data: Article[]) => {
+        this.relatedArticles = data;
+      });
+    });
+
+    this.isLogged = this.authService.getIsLoggedIn();
+    if (this.isLogged) {
+      this.authService.getUserData().subscribe();
     }
   }
 
 
   showMore() {
     if (this.article) {
-      this.commentsService.getComments(this.article.id).subscribe(data => {
-        this.comments = data;
+      const offset = this.comments.comments.length;
+      this.commentsService.getComments(this.article.id,offset).subscribe(data => {
+        this.comments.comments = [...this.comments.comments, ...data.comments];
       })
+      this.isLoadingMore = false;
     }
   }
-
-
 
   sendComment() {
       if (this.commentForm.valid && this.article) {

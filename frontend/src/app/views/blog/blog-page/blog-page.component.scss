@@ -142,7 +142,10 @@
         flex-direction: column;
         gap: 40px;
 
-
+        .no-comment {
+          color: $dark-blue-color;
+          font-size: 20px;
+        }
       }
       .load-more {
         margin-top: 60px;

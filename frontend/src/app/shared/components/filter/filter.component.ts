@@ -19,7 +19,6 @@ export class FilterComponent {
   }
 
   updateFilter(url: string) {
-    // Берём актуальные категории из родителя
     let categories = [...this.activeCategories];
 
     if (categories.includes(url)) {

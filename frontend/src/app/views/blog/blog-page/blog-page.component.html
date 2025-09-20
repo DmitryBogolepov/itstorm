@@ -76,9 +76,11 @@
             <button type="button" class="button blog-btn" (click)="sendComment()">Опубликовать комментарий</button>
           </form>
           <div class="blog-comments-section">
-            <app-comment class="comment" *ngFor="let comment of comments.comments" [comment]="comment" ></app-comment>
+            <app-comment class="comment" *ngFor="let comment of comments.comments" [comment]="comment"></app-comment>
+
+            <div class="no-comment" *ngIf="!comments || comments.comments.length == 0">Комментариев пока нет</div>
           </div>
-          <div class="load-more" (click)="showMore()" *ngIf="comments.comments.length > 3">
+          <div class="load-more" (click)="showMore()" *ngIf="!isLoadingMore && comments.comments.length < comments.allCount">
             <div class="load-more-text" >Загрузить ещё комментарии</div>
             <div class="load-more-icon">
               <svg width="16" height="8" viewBox="0 0 16 8" fill="none" xmlns="http://www.w3.org/2000/svg">

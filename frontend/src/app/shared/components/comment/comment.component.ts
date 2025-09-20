@@ -22,6 +22,7 @@ export class CommentComponent implements OnInit {
     this.reactionsService.like(this.comment.id).subscribe({
       next: (data: DefaultResponseType) => {
         if (!data.error) {
+          this._snackBar.open('Ваш голос учтен')
         }
       },
       error: (err) => {
@@ -34,6 +35,7 @@ export class CommentComponent implements OnInit {
     this.reactionsService.dislike(this.comment.id).subscribe({
       next: (data: DefaultResponseType) => {
         if (!data.error) {
+          this._snackBar.open('Ваш голос учтен')
         }
       },
       error: (err) => {
@@ -46,10 +48,16 @@ export class CommentComponent implements OnInit {
     this.reactionsService.violate(this.comment.id).subscribe({
       next: (data: DefaultResponseType) => {
         if (!data.error) {
+          this._snackBar.open('Жалоба отправлена')
         }
+
       },
       error: (err) => {
-        this._snackBar.open('Необходимо войти в аккаунт')
+        if (err.error?.message === 'Это действие уже применено к комментарию') {
+          this._snackBar.open('Жалоба уже отправлена');
+        } else {
+          this._snackBar.open('Необходимо войти в аккаунт');
+        }
       }
     });
   }
