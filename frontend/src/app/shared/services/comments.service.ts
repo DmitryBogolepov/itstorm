@@ -28,4 +28,12 @@ export class CommentsService {
       article:article
     })
   }
+
+  getUserActions(articleId: string): Observable<any> {
+    return this.http.get<any>(environment.api + 'comments/article-comment-actions', {
+      params: {
+        articleId: articleId
+      }
+    });
+  }
 }

@@ -5,16 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33dc15cd-8451-4dd6-9035-adecce70b26d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/src/types/commentAction.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/shared/components/article/article.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/shared/components/article/article.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/shared/components/comment/comment.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/shared/components/comment/comment.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/shared/components/comment/comment.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/shared/components/comment/comment.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/shared/components/comment/comment.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/shared/components/comment/comment.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/shared/components/filter/filter.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/shared/components/filter/filter.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/shared/services/comments.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/shared/services/comments.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/views/blog/blog-page/blog-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/views/blog/blog-page/blog-page.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/views/blog/blog-page/blog-page.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/views/blog/blog-page/blog-page.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/views/blog/blog-page/blog-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/views/blog/blog-page/blog-page.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/views/blog/catalog/catalog.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/views/blog/catalog/catalog.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/assets/styles/_global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/styles/_global.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +143,8 @@
       <workItem from="1758118505153" duration="4784000" />
       <workItem from="1758187226840" duration="2583000" />
       <workItem from="1758277495602" duration="3531000" />
-      <workItem from="1758369496643" duration="4266000" />
+      <workItem from="1758369496643" duration="4559000" />
+      <workItem from="1758534909478" duration="2291000" />
     </task>
     <servers />
   </component>

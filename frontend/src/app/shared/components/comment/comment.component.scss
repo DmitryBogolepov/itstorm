@@ -55,6 +55,14 @@
         width: 24px;
         height: 24px;
         cursor: pointer;
+        svg {
+          &.liked path {
+            fill: $blue-main-color;
+          }
+          &.disliked path {
+            fill: $blue-main-color;
+          }
+        }
       }
     }
     .comment-question {

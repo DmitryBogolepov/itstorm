@@ -1,8 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {CommentType} from "../../../../types/comments.type";
+import {Component, Input, OnInit, Output,EventEmitter} from '@angular/core';
+import {CommentsType, CommentType} from "../../../../types/comments.type";
 import {ReactionsService} from "../../services/reactions.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {DefaultResponseType} from "../../../../types/default-response.type";
+import {CommentAction} from "../../../../types/commentAction";
 
 @Component({
   selector: 'app-comment',
@@ -11,18 +12,22 @@ import {DefaultResponseType} from "../../../../types/default-response.type";
 })
 export class CommentComponent implements OnInit {
   @Input() comment!: CommentType;
+  @Input() userAction?: CommentAction;
 
+  comments: CommentsType = {allCount:0,comments:[]};
   constructor(private reactionsService: ReactionsService, private _snackBar: MatSnackBar) {
   }
 
   ngOnInit(): void {
-  }
 
+  }
+  @Output() actionChanged: EventEmitter<void> = new EventEmitter<void>();
   like() {
     this.reactionsService.like(this.comment.id).subscribe({
       next: (data: DefaultResponseType) => {
         if (!data.error) {
-          this._snackBar.open('Ваш голос учтен')
+          this._snackBar.open('Ваш голос учтен');
+          this.actionChanged.emit();
         }
       },
       error: (err) => {
@@ -35,7 +40,8 @@ export class CommentComponent implements OnInit {
     this.reactionsService.dislike(this.comment.id).subscribe({
       next: (data: DefaultResponseType) => {
         if (!data.error) {
-          this._snackBar.open('Ваш голос учтен')
+          this._snackBar.open('Ваш голос учтен');
+          this.actionChanged.emit();
         }
       },
       error: (err) => {

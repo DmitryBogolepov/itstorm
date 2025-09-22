@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder} from "@angular/forms";
 import {AuthService} from "../../../core/auth/auth.service";
 import {ActivatedRoute} from "@angular/router";
-import {UserType} from "../../../../types/user.type";
 import {DefaultResponseType} from "../../../../types/default-response.type";
 import {ArticleService} from "../../../shared/services/article.service";
 import {Article, ArticleType} from "../../../../types/articles.type";
@@ -10,6 +9,7 @@ import {DomSanitizer, SafeHtml} from "@angular/platform-browser";
 import {CommentsService} from "../../../shared/services/comments.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {CommentsType} from "../../../../types/comments.type";
+import {CommentAction} from "../../../../types/commentAction";
 
 @Component({
   selector: 'app-blog-page',
@@ -18,6 +18,7 @@ import {CommentsType} from "../../../../types/comments.type";
 })
 export class BlogPageComponent implements OnInit {
   isLogged = false;
+
   constructor(private _snackBar:MatSnackBar,private commentsService:CommentsService,private fb:FormBuilder,private authService:AuthService,private activatedRoute:ActivatedRoute,private articlesService:ArticleService,private sanitizer: DomSanitizer) { }
   articleUrl!:string;
   isLoadingMore = false;
@@ -30,6 +31,7 @@ export class BlogPageComponent implements OnInit {
     allCount:0,
     comments:[]
   }
+  userActions: CommentAction[] = [];
   article:ArticleType | null= null;
   relatedArticles:Article[] | null = null;
   ngOnInit(): void {
@@ -44,6 +46,9 @@ export class BlogPageComponent implements OnInit {
         if (this.article?.text) {
           this.safeText = this.sanitizer.bypassSecurityTrustHtml(this.article.text);
         }
+        this.commentsService.getUserActions(this.article?.id).subscribe(res => {
+          this.userActions = res;
+        });
       });
 
       this.articlesService.getRelatedArticles(this.articleUrl).subscribe((data: Article[]) => {
@@ -57,7 +62,9 @@ export class BlogPageComponent implements OnInit {
     }
   }
 
-
+  getUserAction(commentId: string): CommentAction | undefined {
+    return this.userActions.find(action => action.comment === commentId);
+  }
   showMore() {
     if (this.article) {
       const offset = this.comments.comments.length;
@@ -81,4 +88,12 @@ export class BlogPageComponent implements OnInit {
         })
       }
   }
+
+  updateUserActions(articleId: string) {
+    this.commentsService.getUserActions(articleId).subscribe(res => {
+      this.userActions = res;
+    });
+  }
 }
+
+
