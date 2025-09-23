@@ -23,6 +23,17 @@ export class CommentComponent implements OnInit {
   }
   @Output() actionChanged: EventEmitter<void> = new EventEmitter<void>();
   like() {
+    if (this.userAction?.action === 'like') {
+      this.comment.likesCount--;
+      this.userAction = undefined;
+    }
+    else {
+      if (this.userAction?.action === 'dislike') {
+        this.comment.dislikesCount--;
+      }
+      this.comment.likesCount++;
+      this.userAction = { comment: this.comment.id, action: 'like' };
+    }
     this.reactionsService.like(this.comment.id).subscribe({
       next: (data: DefaultResponseType) => {
         if (!data.error) {
@@ -37,6 +48,17 @@ export class CommentComponent implements OnInit {
   }
 
   dislike() {
+    if (this.userAction?.action === 'dislike') {
+      this.comment.dislikesCount--;
+      this.userAction = undefined;
+    }
+    else {
+      if (this.userAction?.action === 'like') {
+        this.comment.likesCount--;
+      }
+      this.comment.dislikesCount++;
+      this.userAction = { comment: this.comment.id, action: 'dislike' };
+    }
     this.reactionsService.dislike(this.comment.id).subscribe({
       next: (data: DefaultResponseType) => {
         if (!data.error) {
@@ -56,7 +78,6 @@ export class CommentComponent implements OnInit {
         if (!data.error) {
           this._snackBar.open('Жалоба отправлена')
         }
-
       },
       error: (err) => {
         if (err.error?.message === 'Это действие уже применено к комментарию') {
@@ -67,6 +88,4 @@ export class CommentComponent implements OnInit {
       }
     });
   }
-
-
 }

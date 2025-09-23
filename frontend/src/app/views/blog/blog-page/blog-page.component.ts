@@ -37,12 +37,10 @@ export class BlogPageComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       this.articleUrl = params['url'];
-
       this.articlesService.getArticle(this.articleUrl).subscribe((data: ArticleType) => {
         this.article = data;
         this.comments.allCount = data.commentsCount;
         this.comments.comments = data.comments;
-
         if (this.article?.text) {
           this.safeText = this.sanitizer.bypassSecurityTrustHtml(this.article.text);
         }
@@ -50,12 +48,10 @@ export class BlogPageComponent implements OnInit {
           this.userActions = res;
         });
       });
-
       this.articlesService.getRelatedArticles(this.articleUrl).subscribe((data: Article[]) => {
         this.relatedArticles = data;
       });
     });
-
     this.isLogged = this.authService.getIsLoggedIn();
     if (this.isLogged) {
       this.authService.getUserData().subscribe();
@@ -82,10 +78,16 @@ export class BlogPageComponent implements OnInit {
             this._snackBar.open(data.message)
             throw new Error(data.message);
           } else {
-            this._snackBar.open('Комментарий успешно отправлен!')
+            this._snackBar.open('Комментарий успешно отправлен!');
+            this.commentForm.reset();
+            if (this.article) {
+              this.commentsService.getComments(this.article.id, 0).subscribe(res => {
+                this.comments.comments = res.comments.slice(0, 3);
+                this.comments.allCount = res.allCount;
+              });
+            }
           }
-          this.commentForm.clearValidators();
-        })
+        });
       }
   }
 
