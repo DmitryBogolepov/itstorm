@@ -6,9 +6,16 @@
         <input class="reg-input" type="text" placeholder="Электронная почта" formControlName="email"
                [ngStyle]="{'border-color':loginForm.get('email')?.invalid
                  && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched) ? 'red' : ''}">
+        <div class="error" *ngIf="f.email.invalid && (f.email.dirty || f.email.touched)">
+          <small *ngIf="f.email.errors?.['required']">Введите email</small>
+          <small *ngIf="f.email.errors?.['email']">Неверный формат email</small>
+        </div>
         <input class="reg-input" type="password" placeholder="Пароль" formControlName="password"
                [ngStyle]="{'border-color':loginForm.get('password')?.invalid
                  && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched) ? 'red' : ''}">
+        <div class="error" *ngIf="f.password.invalid && (f.password.dirty || f.password.touched)">
+          <small *ngIf="f.password.errors?.['required']">Введите пароль</small>
+        </div>
         <input class="checkbox" id="checkbox" type="checkbox" formControlName="rememberMe">
         <label class="checkbox-label" for="checkbox">Запомнить меня</label>
         <button class="button auth-button" [disabled]="loginForm.invalid" (click)="login()">Войти</button>

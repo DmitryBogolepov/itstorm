@@ -6,12 +6,24 @@
         <input class="reg-input" type="text" placeholder="Ваше имя" formControlName="name"
                [ngStyle]="{'border-color':signUpForm.get('name')?.invalid
                  && (signUpForm.get('name')?.dirty || signUpForm.get('name')?.touched) ? 'red' : ''}">
+        <div class="error" *ngIf="f.name.invalid && (f.name.dirty || f.name.touched)">
+          <small *ngIf="f.name.errors?.['required']">Введите имя</small>
+          <small *ngIf="f.name.errors?.['pattern']">Имя должно начинаться с заглавной буквы и содержать только буквы</small>
+        </div>
         <input class="reg-input" type="text" placeholder="Электронная почта" formControlName="email"
                [ngStyle]="{'border-color':signUpForm.get('email')?.invalid
                  && (signUpForm.get('email')?.dirty || signUpForm.get('email')?.touched) ? 'red' : ''}">
+        <div class="error" *ngIf="f.email.invalid && (f.email.dirty || f.email.touched)">
+          <small *ngIf="f.email.errors?.['required']">Введите email</small>
+          <small *ngIf="f.email.errors?.['email']">Неверный формат email</small>
+        </div>
         <input class="reg-input" type="password" placeholder="Пароль" formControlName="password"
                [ngStyle]="{'border-color':signUpForm.get('password')?.invalid
                  && (signUpForm.get('password')?.dirty || signUpForm.get('password')?.touched) ? 'red' : ''}">
+        <div class="error" *ngIf="f.password.invalid && (f.password.dirty || f.password.touched)">
+          <small *ngIf="f.password.errors?.['required']">Введите пароль</small>
+          <small *ngIf="f.password.errors?.['pattern']">Пароль должен содержать минимум 8 символов, хотя бы одну заглавную букву и цифру</small>
+        </div>
         <input class="checkbox" id="checkbox" type="checkbox" formControlName="acceptPolitics">
         <label class="checkbox-label" for="checkbox">Я принимаю <a class="checkbox-link" [routerLink]="['/politic']" fragment="user-agreement">условия пользовательского соглашения</a> и даю <a class="checkbox-link" [routerLink]="['/politic']" fragment="data">согласие на обработку персональных данных.</a></label>
         <button class="button auth-button" [disabled]="signUpForm.invalid" (click)="signup()">Зарегистрироваться</button>

@@ -26,6 +26,9 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  get f() {
+    return this.loginForm.controls;
+  }
   login():void {
     if (this.loginForm.valid && this.loginForm.value.email && this.loginForm.value.password) {
       this.authService.login(this.loginForm.value.email, this.loginForm.value.password,!!this.loginForm.value.rememberMe)

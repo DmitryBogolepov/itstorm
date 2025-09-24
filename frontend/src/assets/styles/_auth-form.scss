@@ -14,6 +14,15 @@
 .reg-input {
   margin-bottom: 5px;
 }
+
+.error {
+  margin-bottom: 5px;
+  small {
+    color: red;
+    font-size: 12px;
+  }
+}
+
 .checkbox {
   margin-top: 5px;
 }

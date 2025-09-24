@@ -15,9 +15,9 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 export class MainComponent implements OnInit {
   articles:ArticlePopularType[] = [];
   constructor(private fb:FormBuilder,private _snackBar: MatSnackBar ,private articleService:ArticleService,private requestService:RequestService) { }
-  showSuccess = false;
-  isShowed = false;
-  isOpen = false;
+  showSuccess:boolean = false;
+  isShowed:boolean = false;
+  isOpen:boolean = false;
   reviews = [
     {
       name: 'Станислав',

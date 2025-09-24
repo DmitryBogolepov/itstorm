@@ -26,6 +26,10 @@ export class SigninComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  get f() {
+    return this.signUpForm.controls;
+  }
+
   signup():void {
     if (this.signUpForm.valid && this.signUpForm.value.email && this.signUpForm.value.name && this.signUpForm.value.password && this.signUpForm.value.acceptPolitics) {
       this.authService.signup(this.signUpForm.value.name, this.signUpForm.value.email, this.signUpForm.value.password)
