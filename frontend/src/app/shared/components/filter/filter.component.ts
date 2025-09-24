@@ -19,10 +19,10 @@ export class FilterComponent {
   }
 
   updateFilter(url: string) {
-    let categories = [...this.activeCategories];
+    let categories:string[] = [...this.activeCategories];
 
     if (categories.includes(url)) {
-      categories = categories.filter((item: string) => item !== url);
+      categories = categories.filter((item: string):boolean => item !== url);
     } else {
       categories.push(url);
     }

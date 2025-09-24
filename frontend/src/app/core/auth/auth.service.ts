@@ -11,25 +11,25 @@ import {UserType} from "../../../types/user.type";
 })
 export class AuthService {
 
-  public accessTokenKey = 'accessToken';
-  public refreshTokenKey = 'refreshToken';
-  public userIdKey = 'userId';
-  public user$ = new BehaviorSubject<UserType | null>(null);
+  public accessTokenKey:string = 'accessToken';
+  public refreshTokenKey:string = 'refreshToken';
+  public userIdKey:string = 'userId';
+  public user$:BehaviorSubject<UserType | null> = new BehaviorSubject<UserType | null>(null);
   public isLogged$:Subject<boolean> = new Subject<boolean>();
-  private isLogged = false;
+  private isLogged:boolean = false;
 
   constructor(private http:HttpClient) {
     this.isLogged = !!localStorage.getItem(this.accessTokenKey);
   }
 
-  public setTokens(accessToken:string,refreshToken:string) {
+  public setTokens(accessToken:string,refreshToken:string):void {
     localStorage.setItem(this.accessTokenKey,accessToken);
     localStorage.setItem(this.refreshTokenKey,refreshToken);
     this.isLogged = true;
     this.isLogged$.next(true);
   }
 
-  public removeTokens() {
+  public removeTokens():void {
     localStorage.removeItem(this.accessTokenKey);
     localStorage.removeItem(this.refreshTokenKey);
     this.isLogged = false;
@@ -86,12 +86,12 @@ export class AuthService {
     }
   }
 
-  getUserData() {
+  getUserData():Observable<UserType | DefaultResponseType>   {
     return this.http.get<DefaultResponseType | UserType>(environment.api + 'users');
   }
 
 
-  public getIsLoggedIn() {
+  public getIsLoggedIn():boolean {
     return this.isLogged;
   }
 }

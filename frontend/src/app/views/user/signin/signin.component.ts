@@ -26,16 +26,16 @@ export class SigninComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  signup() {
+  signup():void {
     if (this.signUpForm.valid && this.signUpForm.value.email && this.signUpForm.value.name && this.signUpForm.value.password && this.signUpForm.value.acceptPolitics) {
       this.authService.signup(this.signUpForm.value.name, this.signUpForm.value.email, this.signUpForm.value.password)
         .subscribe({
-          next: (data: DefaultResponseType | LoginResponseType) => {
+          next: (data: DefaultResponseType | LoginResponseType):void => {
             let error = null;
             if ((data as DefaultResponseType).error !== undefined) {
               error = (data as DefaultResponseType).message
             }
-            const loginResponse = data as LoginResponseType;
+            const loginResponse:LoginResponseType = data as LoginResponseType;
             if (!loginResponse.accessToken || !loginResponse.refreshToken || !loginResponse.userId) {
               error = 'Ошибка регистрации';
             }
@@ -48,7 +48,7 @@ export class SigninComponent implements OnInit {
             this._snackBar.open('Вы успешно зарегистрировались');
             this.router.navigate(['/']);
           },
-          error: (errorResponse: HttpErrorResponse) => {
+          error: (errorResponse: HttpErrorResponse):void => {
             if (errorResponse.error && errorResponse.error.message) {
               this._snackBar.open(errorResponse.error.message);
             } else {

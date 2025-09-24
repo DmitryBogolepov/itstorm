@@ -70,17 +70,17 @@ export class MainComponent implements OnInit {
   ngOnInit(): void {
     this.articleService.getPopularArticle().subscribe((data:ArticlePopularType[]) => {
       this.articles = data;
-    })
+    });
   }
-  modalShow() {
+  modalShow():void {
     this.isShowed = !this.isShowed;
   }
-  modalShowWithService(service:string) {
+  modalShowWithService(service:string):void {
     this.isShowed = !this.isShowed;
     this.modalOrderForm.get('service')?.setValue(service)
   }
 
-  submitOrder() {
+  submitOrder():void {
     if (this.modalOrderForm.valid && this.modalOrderForm.value.service && this.modalOrderForm.value.name && this.modalOrderForm.value.phone) {
       const requestObject:RequestType = {
         name: this.modalOrderForm.value.name,
@@ -90,22 +90,22 @@ export class MainComponent implements OnInit {
       }
       this.requestService.sendRequest(requestObject)
         .subscribe( {
-          next:(data:DefaultResponseType) => {
+          next:(data:DefaultResponseType):void => {
             if (!data.error) {
               this.showSuccess = true;
             }
           },
-          error: (err) => {
+          error: (err):void => {
             this._snackBar.open('Произошла ошибка при отправке запроса');
           }
         })
 
     }
   }
-  toggleDropdown() {
+  toggleDropdown():void {
     this.isOpen = !this.isOpen;
   }
-  selectOption(value: string, event: Event) {
+  selectOption(value: string, event: Event):void {
     event.stopPropagation();
     this.modalOrderForm.get('service')?.setValue(value);
     this.isOpen = false;

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder} from "@angular/forms";
+import {FormBuilder, Validators} from "@angular/forms";
 import {AuthService} from "../../../core/auth/auth.service";
 import {ActivatedRoute} from "@angular/router";
 import {DefaultResponseType} from "../../../../types/default-response.type";
@@ -17,13 +17,13 @@ import {CommentAction} from "../../../../types/commentAction";
   styleUrls: ['./blog-page.component.scss']
 })
 export class BlogPageComponent implements OnInit {
-  isLogged = false;
+  isLogged:boolean = false;
 
   constructor(private _snackBar:MatSnackBar,private commentsService:CommentsService,private fb:FormBuilder,private authService:AuthService,private activatedRoute:ActivatedRoute,private articlesService:ArticleService,private sanitizer: DomSanitizer) { }
-  articleUrl!:string;
-  isLoadingMore = false;
+  articleUrl:string = '';
+  isLoadingMore:boolean = false;
   commentForm = this.fb.group({
-    message:[''],
+    message:['',[Validators.required]],
     article:['']
   })
   safeText!: SafeHtml;
@@ -61,9 +61,9 @@ export class BlogPageComponent implements OnInit {
   getUserAction(commentId: string): CommentAction | undefined {
     return this.userActions.find(action => action.comment === commentId);
   }
-  showMore() {
+  showMore():void {
     if (this.article) {
-      const offset = this.comments.comments.length;
+      const offset:number = this.comments.comments.length;
       this.commentsService.getComments(this.article.id,offset).subscribe(data => {
         this.comments.comments = [...this.comments.comments, ...data.comments];
       })
@@ -71,7 +71,7 @@ export class BlogPageComponent implements OnInit {
     }
   }
 
-  sendComment() {
+  sendComment():void {
       if (this.commentForm.valid && this.article) {
         this.commentsService.sendComment(this.commentForm.controls['message'].value!, this.article.id).subscribe((data:DefaultResponseType) => {
           if (data.error) {
@@ -91,7 +91,7 @@ export class BlogPageComponent implements OnInit {
       }
   }
 
-  updateUserActions(articleId: string) {
+  updateUserActions(articleId: string):void {
     this.commentsService.getUserActions(articleId).subscribe(res => {
       this.userActions = res;
     });

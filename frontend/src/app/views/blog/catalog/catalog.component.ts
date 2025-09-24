@@ -13,7 +13,7 @@ import {AppliedFilterType} from "../../../../types/applied-filter.type";
   styleUrls: ['./catalog.component.scss']
 })
 export class CatalogComponent implements OnInit {
-  sortingOpen = false;
+  sortingOpen:boolean = false;
   articles:ArticlesType | null = null;
   pages: number[] = [];
   categories:CategoryType[] = [];
@@ -21,21 +21,19 @@ export class CatalogComponent implements OnInit {
   appliedFilters: AppliedFilterType[] = [];
   constructor(private activatedRoute:ActivatedRoute,private articleService:ArticleService ,private router:Router,private categoryService:CategoryService) { }
   ngOnInit(): void {
-    this.categoryService.getCategories().subscribe((data:CategoryType[]) => {
+    this.categoryService.getCategories().subscribe((data:CategoryType[]):void => {
       this.categories = data;
       this.activatedRoute.queryParams.subscribe(params => {
         this.updateActiveParams(params);
         this.loadArticles();
       });
-
     });
   }
-  private updateActiveParams(params: any) {
+  private updateActiveParams(params: any):void {
     this.activeParams.categories = params['categories']
       ? params['categories'].split(',')
       : [];
     this.activeParams.page = params['page'] ? +params['page'] : 1;
-
     this.appliedFilters = this.activeParams.categories
       .map(url => this.categories.find(type => type.url === url))
       .filter((foundType): foundType is CategoryType => !!foundType)
@@ -45,22 +43,22 @@ export class CatalogComponent implements OnInit {
       }));
   }
 
-  private loadArticles() {
-    this.articleService.getArticles(this.activeParams).subscribe((data: ArticlesType) => {
+  private loadArticles():void {
+    this.articleService.getArticles(this.activeParams).subscribe((data: ArticlesType):void => {
       this.articles = data;
       this.updatePages();
     });
   }
 
-  removeFilter(filter:AppliedFilterType) {
-    this.activeParams.categories = this.activeParams.categories.filter(item => item !== filter.url);
+  removeFilter(filter:AppliedFilterType):void {
+    this.activeParams.categories = this.activeParams.categories.filter((item:string) => item !== filter.url);
 
     this.router.navigate([], {
       relativeTo: this.activatedRoute,
       queryParams: { ...this.activeParams }
-    }).then(() => {
+    }).then(():void => {
       this.appliedFilters = this.activeParams.categories
-        .map(url => this.categories.find(type => type.url === url))
+        .map(url => this.categories.find((type:CategoryType) => type.url === url))
         .filter((foundType): foundType is CategoryType => !!foundType)
         .map(foundType => ({
           name: foundType.name,
@@ -70,7 +68,7 @@ export class CatalogComponent implements OnInit {
     });
   }
 
-  private updatePages() {
+  private updatePages():void {
     this.pages = [];
     if (this.articles && this.articles.pages) {
       for (let i = 1; i <= this.articles.pages; i++) {
@@ -79,7 +77,7 @@ export class CatalogComponent implements OnInit {
     }
   }
 
-  openPage(page: number) {
+  openPage(page: number):void {
     this.router.navigate([], {
       relativeTo: this.activatedRoute,
       queryParams: {
@@ -90,19 +88,19 @@ export class CatalogComponent implements OnInit {
     });
   }
 
-  openNextPage() {
+  openNextPage():void {
     if (this.activeParams.page && this.activeParams.page < this.pages.length) {
       this.openPage(this.activeParams.page + 1);
     }
   }
 
-  openPrevPage() {
+  openPrevPage():void {
     if (this.activeParams.page && this.activeParams.page > 1) {
       this.openPage(this.activeParams.page - 1);
     }
   }
 
-  toggleSorting() {
+  toggleSorting():boolean {
     return this.sortingOpen = !this.sortingOpen;
   }
 }

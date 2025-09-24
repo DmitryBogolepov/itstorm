@@ -73,10 +73,10 @@
           </div>
           <form class="comment-submit" [formGroup]="commentForm"  *ngIf="isLogged">
             <textarea class="comment-submit-input" formControlName="message" placeholder="Напишите Ваш комментарий к статье..." ></textarea>
-            <button type="button" class="button blog-btn" (click)="sendComment()">Опубликовать комментарий</button>
+            <button type="button" class="button blog-btn" [disabled]="!commentForm.valid"  (click)="sendComment()">Опубликовать комментарий</button>
           </form>
           <div class="blog-comments-section">
-            <app-comment class="comment" *ngFor="let comment of comments.comments" [comment]="comment" (actionChanged)="updateUserActions(article?.id!)"  [userAction]="getUserAction(comment.id)"></app-comment>
+            <app-comment class="comment" *ngFor="let comment of comments.comments" [comment]="comment" (actionChanged)="updateUserActions(article.id)"  [userAction]="getUserAction(comment.id)"></app-comment>
             <div class="no-comment" *ngIf="!comments || comments.comments.length == 0">Комментариев пока нет</div>
           </div>
           <div class="load-more" (click)="showMore()" *ngIf="!isLoadingMore && comments.comments.length < comments.allCount">
@@ -89,13 +89,6 @@
           </div>
         </div>
       </div>
-
-
-
-
-
-
-
       <div class="also-read">
         <div class="also-read-title">Читайте также:</div>
         <div class="also-articles">

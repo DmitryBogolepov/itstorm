@@ -5,9 +5,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33dc15cd-8451-4dd6-9035-adecce70b26d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/public/images/image1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/images/image10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/images/image11.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/images/image12.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/images/image13.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/images/image14.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/images/image15.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/images/image2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/images/image3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/images/image4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/images/image5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/images/image6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/images/image7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/images/image8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/images/image9.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.vscode/extensions.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.vscode/launch.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.vscode/tasks.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/auth/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/shared/components/article/article.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/shared/components/article/article.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/shared/components/article/article.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/shared/components/article/article.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/shared/components/comment/comment.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/shared/components/comment/comment.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/shared/components/filter/filter.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/shared/components/filter/filter.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/shared/layout/header/header.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/shared/layout/header/header.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/views/blog/blog-page/blog-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/views/blog/blog-page/blog-page.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/views/blog/blog-page/blog-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/views/blog/blog-page/blog-page.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/views/blog/catalog/catalog.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/views/blog/catalog/catalog.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/views/main/main.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/views/main/main.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/views/user/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/views/user/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/views/user/signin/signin.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/views/user/signin/signin.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/assets/styles/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/styles/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/environments/environment.prod.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/environments/environment.prod.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/environments/environment.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,11 +94,11 @@
       <recent name="C:\Users\Дмитрий\WebstormProjects\angular\itstorm" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Дмитрий\WebstormProjects\angular\itstorm-clean\backend\public\images" />
+      <recent name="C:\Users\Дмитрий\WebstormProjects\angular\itstorm-clean\backend" />
       <recent name="C:\Users\Дмитрий\WebstormProjects\angular\itstorm-clean\frontend\src\assets\images\blog" />
       <recent name="C:\Users\Дмитрий\WebstormProjects\angular\itstorm-clean\frontend\src\assets\images\main-page" />
       <recent name="C:\Users\Дмитрий\WebstormProjects\angular\itstorm\frontend\src\assets\images\comment" />
-      <recent name="C:\Users\Дмитрий\WebstormProjects\angular\itstorm\frontend\src\assets\images\main-page" />
-      <recent name="C:\Users\Дмитрий\WebstormProjects\angular\itstorm" />
     </key>
   </component>
   <component name="RunManager" selected="npm.Angular CLI Server">
@@ -140,7 +172,8 @@
       <workItem from="1758277495602" duration="3531000" />
       <workItem from="1758369496643" duration="4559000" />
       <workItem from="1758534909478" duration="2688000" />
-      <workItem from="1758642131388" duration="1591000" />
+      <workItem from="1758642131388" duration="2090000" />
+      <workItem from="1758729302578" duration="3262000" />
     </task>
     <servers />
   </component>

@@ -26,16 +26,16 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  login() {
+  login():void {
     if (this.loginForm.valid && this.loginForm.value.email && this.loginForm.value.password) {
       this.authService.login(this.loginForm.value.email, this.loginForm.value.password,!!this.loginForm.value.rememberMe)
         .subscribe({
-          next:(data:LoginResponseType | DefaultResponseType) => {
+          next:(data:LoginResponseType | DefaultResponseType):void => {
             let error = null;
             if ((data as DefaultResponseType).error !== undefined){
               error = (data as DefaultResponseType).message
             }
-            const loginResponse = data as LoginResponseType;
+            const loginResponse:LoginResponseType = data as LoginResponseType;
             if (!loginResponse.accessToken || !loginResponse.refreshToken || !loginResponse.userId){
               error = 'Ошибка авторизации';
             }
@@ -46,16 +46,16 @@ export class LoginComponent implements OnInit {
             this.authService.setTokens(loginResponse.accessToken,loginResponse.refreshToken);
             this.authService.userId = loginResponse.userId;
             this.authService.getUserData().subscribe({
-              next: (userData: UserType | DefaultResponseType) => {
+              next: (userData: UserType | DefaultResponseType):void => {
                 if (!('error' in userData)) {
-                  this.authService.user$.next(userData as UserType); //
+                  this.authService.user$.next(userData as UserType);
                 }
               }
             });
             this._snackBar.open('Вы успешно авторизовались');
             this.router.navigate(['/']);
           },
-          error: (errorResponse:HttpErrorResponse) => {
+          error: (errorResponse:HttpErrorResponse):void => {
             if (errorResponse.error && errorResponse.error.message) {
               this._snackBar.open(errorResponse.error.message);
             } else {
