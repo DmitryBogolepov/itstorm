@@ -56,7 +56,16 @@ export class HeaderComponent implements OnInit {
       }
     });
   }
-
+  navigateLink(section: string): void {
+    this.router.navigate(['/']).then(() => {
+      setTimeout(() => {
+        const el = document.getElementById(section);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    });
+  }
   doLogout(): void {
     this.authService.removeTokens();
     this.authService.userId = null;
