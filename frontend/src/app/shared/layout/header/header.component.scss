@@ -3,7 +3,6 @@
 .header {
   padding-top: 40px;
   padding-bottom: 40px;
-
   .container {
     display: flex;
     align-items: center;
@@ -37,7 +36,6 @@
     }
 
     .contact-number {
-
       a {
         width: 144px;
         text-decoration: none;
@@ -62,7 +60,6 @@
         font-weight: 500;
         font-size: 16px;
         &.user-authorized {
-          //width: 150px;
         }
       }
       &.active {
@@ -70,4 +67,26 @@
       }
     }
   }
+}
+
+@media (max-width: 1024px) {
+
+  .header {
+    .container {
+
+
+
+      .user-actions {
+        margin-left: 40px;
+      }
+      .user-action-text {
+        max-width: 80px;
+      }
+      .nav-items {
+        margin-left: 70px;
+        margin-right: 100px;
+      }
+    }
+  }
+
 }

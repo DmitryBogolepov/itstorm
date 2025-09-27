@@ -104,7 +104,7 @@
           height: 498px;
           width: 290px;
           margin-right: 26px;
-
+          position: relative;
           img {
             width: 290px;
             height: 290px;
@@ -169,7 +169,7 @@
 
       .about-us-info {
         margin-left: 68px;
-        width: 712px;
+        max-width: 712px;
 
         .about-us-title {
           @include head-lora-38;
@@ -503,6 +503,41 @@
         @include head-lora-38;
         margin-bottom: 20px;
         color: $blue-main-color;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .services {
+    .services-items {
+      flex-wrap: wrap;
+      margin: 0 auto;
+      .services-item {
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+  .popular {
+    .articles-block {
+      flex-wrap: wrap;
+      .article-item {
+        margin-bottom: 15px;
+      }
+    }
+  }
+  .about-us {
+    .about-us-info {
+      margin-left: 30px;
+      max-width: 640px;
+    }
+  }
+
+  .contacts {
+    .contacts-map {
+      iframe {
+        width: 500px;
       }
     }
   }

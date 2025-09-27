@@ -58,7 +58,7 @@ export class MainComponent implements OnInit {
     responsive: {
       0: { items: 1 },
       768: { items: 2 },
-      1024: { items: 3 }
+      1024: { items: 2.5 }
     },
     nav: false,
   };

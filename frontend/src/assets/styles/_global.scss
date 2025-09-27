@@ -93,3 +93,9 @@ html,body {
   margin-bottom: 20px;
   color: $blue-main-color;
 }
+
+@media screen and (max-width: 1024px){
+  .container {
+    padding: 0 20px;
+  }
+}
