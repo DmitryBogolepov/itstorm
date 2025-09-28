@@ -198,9 +198,20 @@
             width: unset;
           }
         }
-
       }
-
+    }
+  }
+}
+@media (max-width: 1024px) {
+  .footer {
+    .container {
+      .footer-middle {
+        .footer-middle-card {
+          .footer-middle-card-description {
+            font-size: 14px;
+          }
+        }
+      }
     }
   }
 }
